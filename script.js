@@ -1,56 +1,3 @@
-const stateGrid = [
-  { code: "AK", name: "Alaska", row: 7, col: 1 },
-  { code: "HI", name: "Hawaii", row: 8, col: 2 },
-  { code: "WA", name: "Washington", row: 1, col: 1 },
-  { code: "OR", name: "Oregon", row: 2, col: 1 },
-  { code: "CA", name: "California", row: 3, col: 1 },
-  { code: "ID", name: "Idaho", row: 2, col: 2 },
-  { code: "NV", name: "Nevada", row: 3, col: 2 },
-  { code: "UT", name: "Utah", row: 4, col: 2 },
-  { code: "AZ", name: "Arizona", row: 5, col: 2 },
-  { code: "MT", name: "Montana", row: 1, col: 3 },
-  { code: "WY", name: "Wyoming", row: 2, col: 3 },
-  { code: "CO", name: "Colorado", row: 4, col: 3 },
-  { code: "NM", name: "New Mexico", row: 5, col: 3 },
-  { code: "ND", name: "North Dakota", row: 1, col: 4 },
-  { code: "SD", name: "South Dakota", row: 2, col: 4 },
-  { code: "NE", name: "Nebraska", row: 3, col: 4 },
-  { code: "KS", name: "Kansas", row: 4, col: 4 },
-  { code: "OK", name: "Oklahoma", row: 5, col: 4 },
-  { code: "TX", name: "Texas", row: 6, col: 4 },
-  { code: "MN", name: "Minnesota", row: 1, col: 5 },
-  { code: "IA", name: "Iowa", row: 3, col: 5 },
-  { code: "MO", name: "Missouri", row: 4, col: 5 },
-  { code: "AR", name: "Arkansas", row: 5, col: 5 },
-  { code: "LA", name: "Louisiana", row: 6, col: 5 },
-  { code: "WI", name: "Wisconsin", row: 1, col: 6 },
-  { code: "IL", name: "Illinois", row: 3, col: 6 },
-  { code: "MS", name: "Mississippi", row: 6, col: 6 },
-  { code: "MI", name: "Michigan", row: 2, col: 7 },
-  { code: "IN", name: "Indiana", row: 3, col: 7 },
-  { code: "KY", name: "Kentucky", row: 4, col: 7 },
-  { code: "TN", name: "Tennessee", row: 5, col: 7 },
-  { code: "AL", name: "Alabama", row: 6, col: 7 },
-  { code: "OH", name: "Ohio", row: 3, col: 8 },
-  { code: "WV", name: "West Virginia", row: 4, col: 8 },
-  { code: "GA", name: "Georgia", row: 6, col: 8 },
-  { code: "FL", name: "Florida", row: 7, col: 9 },
-  { code: "PA", name: "Pennsylvania", row: 3, col: 9 },
-  { code: "VA", name: "Virginia", row: 4, col: 9 },
-  { code: "NC", name: "North Carolina", row: 5, col: 9 },
-  { code: "SC", name: "South Carolina", row: 6, col: 9 },
-  { code: "NY", name: "New York", row: 2, col: 10 },
-  { code: "NJ", name: "New Jersey", row: 3, col: 10 },
-  { code: "MD", name: "Maryland", row: 4, col: 10 },
-  { code: "DE", name: "Delaware", row: 5, col: 10 },
-  { code: "VT", name: "Vermont", row: 1, col: 11 },
-  { code: "NH", name: "New Hampshire", row: 2, col: 11 },
-  { code: "MA", name: "Massachusetts", row: 3, col: 11 },
-  { code: "CT", name: "Connecticut", row: 4, col: 11 },
-  { code: "RI", name: "Rhode Island", row: 5, col: 11 },
-  { code: "ME", name: "Maine", row: 1, col: 12 }
-];
-
 const stateDetails = {
   TX: {
     summary: "Houston, Dallas, and San Antonio pilot programs show how Compudopt could present both scale and school-level outcomes in one place.",
@@ -62,27 +9,9 @@ const stateDetails = {
     ],
     cities: ["Houston", "Dallas", "San Antonio", "El Paso"],
     schools: [
-      {
-        name: "Northline STEM Academy",
-        city: "Houston",
-        students: 820,
-        computers: 620,
-        impact: "Teachers reported stronger homework completion after students received take-home devices."
-      },
-      {
-        name: "East Dallas College Prep",
-        city: "Dallas",
-        students: 690,
-        computers: 540,
-        impact: "A fictional digital literacy lab helped ninth graders complete more online coursework independently."
-      },
-      {
-        name: "Mission Verde Intermediate",
-        city: "San Antonio",
-        students: 560,
-        computers: 410,
-        impact: "Device distribution paired with family tech nights raised parent engagement in the demo scenario."
-      }
+      { name: "Northline STEM Academy", city: "Houston", students: 820, computers: 620, impact: "Teachers reported stronger homework completion after students received take-home devices." },
+      { name: "East Dallas College Prep", city: "Dallas", students: 690, computers: 540, impact: "A fictional digital literacy lab helped ninth graders complete more online coursework independently." },
+      { name: "Mission Verde Intermediate", city: "San Antonio", students: 560, computers: 410, impact: "Device distribution paired with family tech nights raised parent engagement in the demo scenario." }
     ]
   },
   CA: {
@@ -95,27 +24,9 @@ const stateDetails = {
     ],
     cities: ["Los Angeles", "Oakland", "San Diego"],
     schools: [
-      {
-        name: "Pacific Horizon Middle",
-        city: "Los Angeles",
-        students: 710,
-        computers: 560,
-        impact: "The sample story highlights improved project completion in blended learning classes."
-      },
-      {
-        name: "Laney Bridge Academy",
-        city: "Oakland",
-        students: 510,
-        computers: 430,
-        impact: "School leaders in this fictional example saw more students using digital portfolios."
-      },
-      {
-        name: "Harbor Point Charter",
-        city: "San Diego",
-        students: 470,
-        computers: 355,
-        impact: "The demo data frames device access as a bridge to after-school coding participation."
-      }
+      { name: "Pacific Horizon Middle", city: "Los Angeles", students: 710, computers: 560, impact: "The sample story highlights improved project completion in blended learning classes." },
+      { name: "Laney Bridge Academy", city: "Oakland", students: 510, computers: 430, impact: "School leaders in this fictional example saw more students using digital portfolios." },
+      { name: "Harbor Point Charter", city: "San Diego", students: 470, computers: 355, impact: "The demo data frames device access as a bridge to after-school coding participation." }
     ]
   },
   IL: {
@@ -128,20 +39,8 @@ const stateDetails = {
     ],
     cities: ["Chicago", "Aurora"],
     schools: [
-      {
-        name: "South Loop Innovation School",
-        city: "Chicago",
-        students: 430,
-        computers: 310,
-        impact: "The fictional dashboard shows attendance gains during weeks with major digital assignments."
-      },
-      {
-        name: "Fox Valley Learning Center",
-        city: "Aurora",
-        students: 360,
-        computers: 280,
-        impact: "Students in the demo scenario had more reliable access to college and career resources."
-      }
+      { name: "South Loop Innovation School", city: "Chicago", students: 430, computers: 310, impact: "The fictional dashboard shows attendance gains during weeks with major digital assignments." },
+      { name: "Fox Valley Learning Center", city: "Aurora", students: 360, computers: 280, impact: "Students in the demo scenario had more reliable access to college and career resources." }
     ]
   },
   FL: {
@@ -154,20 +53,8 @@ const stateDetails = {
     ],
     cities: ["Miami", "Orlando", "Tampa"],
     schools: [
-      {
-        name: "Little River Tech Academy",
-        city: "Miami",
-        students: 520,
-        computers: 430,
-        impact: "Sample family surveys indicate more students could complete homework from home."
-      },
-      {
-        name: "Orange Grove Middle",
-        city: "Orlando",
-        students: 410,
-        computers: 310,
-        impact: "The proposal frames Compudopt as a partner in reducing device-sharing across households."
-      }
+      { name: "Little River Tech Academy", city: "Miami", students: 520, computers: 430, impact: "Sample family surveys indicate more students could complete homework from home." },
+      { name: "Orange Grove Middle", city: "Orlando", students: 410, computers: 310, impact: "The proposal frames Compudopt as a partner in reducing device-sharing across households." }
     ]
   },
   GA: {
@@ -180,20 +67,8 @@ const stateDetails = {
     ],
     cities: ["Atlanta", "Savannah"],
     schools: [
-      {
-        name: "Peachtree Youth Academy",
-        city: "Atlanta",
-        students: 380,
-        computers: 280,
-        impact: "The fictional results suggest improved confidence using learning platforms and shared documents."
-      },
-      {
-        name: "Harbor Oaks K-8",
-        city: "Savannah",
-        students: 260,
-        computers: 200,
-        impact: "This demo card highlights increased participation in digital reading and STEM modules."
-      }
+      { name: "Peachtree Youth Academy", city: "Atlanta", students: 380, computers: 280, impact: "The fictional results suggest improved confidence using learning platforms and shared documents." },
+      { name: "Harbor Oaks K-8", city: "Savannah", students: 260, computers: 200, impact: "This demo card highlights increased participation in digital reading and STEM modules." }
     ]
   },
   NC: {
@@ -206,20 +81,8 @@ const stateDetails = {
     ],
     cities: ["Charlotte", "Raleigh", "Greensboro"],
     schools: [
-      {
-        name: "Queen City Pathways",
-        city: "Charlotte",
-        students: 460,
-        computers: 340,
-        impact: "Counselors in the fictional case note stronger college application completion."
-      },
-      {
-        name: "Capital Futures Magnet",
-        city: "Raleigh",
-        students: 330,
-        computers: 255,
-        impact: "The school profile shows improved access to career certifications and online tutorials."
-      }
+      { name: "Queen City Pathways", city: "Charlotte", students: 460, computers: 340, impact: "Counselors in the fictional case note stronger college application completion." },
+      { name: "Capital Futures Magnet", city: "Raleigh", students: 330, computers: 255, impact: "The school profile shows improved access to career certifications and online tutorials." }
     ]
   },
   NY: {
@@ -232,20 +95,8 @@ const stateDetails = {
     ],
     cities: ["New York City", "Buffalo"],
     schools: [
-      {
-        name: "Bronx Forward Academy",
-        city: "New York City",
-        students: 520,
-        computers: 410,
-        impact: "The demo outcome centers on better digital attendance and assignment submission rates."
-      },
-      {
-        name: "Lake Effect Prep",
-        city: "Buffalo",
-        students: 290,
-        computers: 220,
-        impact: "Teachers in the fictional narrative used new devices to support math tutoring outside school hours."
-      }
+      { name: "Bronx Forward Academy", city: "New York City", students: 520, computers: 410, impact: "The demo outcome centers on better digital attendance and assignment submission rates." },
+      { name: "Lake Effect Prep", city: "Buffalo", students: 290, computers: 220, impact: "Teachers in the fictional narrative used new devices to support math tutoring outside school hours." }
     ]
   },
   AZ: {
@@ -258,20 +109,8 @@ const stateDetails = {
     ],
     cities: ["Phoenix", "Tucson"],
     schools: [
-      {
-        name: "Desert Bloom Elementary",
-        city: "Phoenix",
-        students: 340,
-        computers: 255,
-        impact: "The fictional program snapshot highlights fewer device-sharing bottlenecks at home."
-      },
-      {
-        name: "Catalina Rising School",
-        city: "Tucson",
-        students: 260,
-        computers: 205,
-        impact: "A made-up digital skills series helped students practice research and presentation tools."
-      }
+      { name: "Desert Bloom Elementary", city: "Phoenix", students: 340, computers: 255, impact: "The fictional program snapshot highlights fewer device-sharing bottlenecks at home." },
+      { name: "Catalina Rising School", city: "Tucson", students: 260, computers: 205, impact: "A made-up digital skills series helped students practice research and presentation tools." }
     ]
   },
   CO: {
@@ -284,20 +123,8 @@ const stateDetails = {
     ],
     cities: ["Denver", "Colorado Springs"],
     schools: [
-      {
-        name: "Mile High Discovery",
-        city: "Denver",
-        students: 290,
-        computers: 220,
-        impact: "The demo frame focuses on access to digital project work and cloud-based collaboration."
-      },
-      {
-        name: "Pikes Peak Scholars",
-        city: "Colorado Springs",
-        students: 240,
-        computers: 185,
-        impact: "In this fictional scenario, student families reported more confidence using school portals."
-      }
+      { name: "Mile High Discovery", city: "Denver", students: 290, computers: 220, impact: "The demo frame focuses on access to digital project work and cloud-based collaboration." },
+      { name: "Pikes Peak Scholars", city: "Colorado Springs", students: 240, computers: 185, impact: "In this fictional scenario, student families reported more confidence using school portals." }
     ]
   },
   WA: {
@@ -310,20 +137,8 @@ const stateDetails = {
     ],
     cities: ["Seattle", "Tacoma"],
     schools: [
-      {
-        name: "Rainier View School",
-        city: "Seattle",
-        students: 250,
-        computers: 190,
-        impact: "The fictional impact note emphasizes better participation in remote enrichment work."
-      },
-      {
-        name: "South Sound Learning Lab",
-        city: "Tacoma",
-        students: 210,
-        computers: 165,
-        impact: "This school story demonstrates how donated devices could support STEM club retention."
-      }
+      { name: "Rainier View School", city: "Seattle", students: 250, computers: 190, impact: "The fictional impact note emphasizes better participation in remote enrichment work." },
+      { name: "South Sound Learning Lab", city: "Tacoma", students: 210, computers: 165, impact: "This school story demonstrates how donated devices could support STEM club retention." }
     ]
   },
   OH: {
@@ -336,20 +151,8 @@ const stateDetails = {
     ],
     cities: ["Columbus", "Cleveland"],
     schools: [
-      {
-        name: "Buckeye STEAM Academy",
-        city: "Columbus",
-        students: 300,
-        computers: 230,
-        impact: "The sample narrative points to more consistent use of online tutoring and intervention tools."
-      },
-      {
-        name: "Lakeshore Community School",
-        city: "Cleveland",
-        students: 260,
-        computers: 205,
-        impact: "Teachers in the fictional example reported stronger participation in digital writing assignments."
-      }
+      { name: "Buckeye STEAM Academy", city: "Columbus", students: 300, computers: 230, impact: "The sample narrative points to more consistent use of online tutoring and intervention tools." },
+      { name: "Lakeshore Community School", city: "Cleveland", students: 260, computers: 205, impact: "Teachers in the fictional example reported stronger participation in digital writing assignments." }
     ]
   },
   PA: {
@@ -362,25 +165,12 @@ const stateDetails = {
     ],
     cities: ["Philadelphia", "Pittsburgh"],
     schools: [
-      {
-        name: "Liberty Bell Middle",
-        city: "Philadelphia",
-        students: 410,
-        computers: 320,
-        impact: "The fictional impact snapshot highlights improved online test readiness."
-      },
-      {
-        name: "Three Rivers Academy",
-        city: "Pittsburgh",
-        students: 285,
-        computers: 215,
-        impact: "This sample school story ties device access to stronger participation in technology electives."
-      }
+      { name: "Liberty Bell Middle", city: "Philadelphia", students: 410, computers: 320, impact: "The fictional impact snapshot highlights improved online test readiness." },
+      { name: "Three Rivers Academy", city: "Pittsburgh", students: 285, computers: 215, impact: "This sample school story ties device access to stronger participation in technology electives." }
     ]
   }
 };
 
-const tileMap = document.querySelector("#tile-map");
 const stateName = document.querySelector("#state-name");
 const stateSummary = document.querySelector("#state-summary");
 const detailMetrics = document.querySelector("#detail-metrics");
@@ -391,6 +181,7 @@ const schoolCount = document.querySelector("#school-count");
 const totalStates = document.querySelector("#total-states");
 const totalComputers = document.querySelector("#total-computers");
 const totalStudents = document.querySelector("#total-students");
+const states = Array.from(document.querySelectorAll(".state"));
 
 let selectedCode = "TX";
 
@@ -404,7 +195,6 @@ function aggregateTotals() {
     (accumulator, code) => {
       const computersMetric = stateDetails[code].metrics.find((metric) => metric.label === "Computers placed");
       const studentsMetric = stateDetails[code].metrics.find((metric) => metric.label === "Students reached");
-
       accumulator.computers += Number(computersMetric.value.replace(/,/g, ""));
       accumulator.students += Number(studentsMetric.value.replace(/,/g, ""));
       return accumulator;
@@ -417,48 +207,16 @@ function aggregateTotals() {
   totalStudents.textContent = formatNumber(totals.students);
 }
 
-function createTile(state) {
-  const button = document.createElement("button");
-  const hasData = Boolean(stateDetails[state.code]);
-
-  button.className = "state-tile";
-  button.type = "button";
-  button.dataset.code = state.code;
-  button.dataset.active = String(hasData);
-  button.style.gridColumn = state.col;
-  button.style.gridRow = state.row;
-  button.setAttribute(
-    "aria-label",
-    hasData
-      ? `${state.name}. Show fictional cities, schools, and impact metrics.`
-      : `${state.name}. Future territory with no sample data yet.`
-  );
-
-  button.innerHTML = `
-    <span class="state-tile-code">${state.code}</span>
-    <span class="state-tile-name">${state.name}</span>
-  `;
-
-  const activate = () => renderState(state.code);
-
-  button.addEventListener("mouseenter", activate);
-  button.addEventListener("focus", activate);
-  button.addEventListener("click", activate);
-
-  return button;
-}
-
 function renderState(code) {
   selectedCode = code;
-  const meta = stateGrid.find((state) => state.code === code);
   const details = stateDetails[code];
 
-  document.querySelectorAll(".state-tile").forEach((tile) => {
-    tile.classList.toggle("is-selected", tile.dataset.code === code);
+  states.forEach((state) => {
+    state.classList.toggle("is-selected", state.dataset.code === code);
   });
 
   if (!details) {
-    stateName.textContent = meta.name;
+    stateName.textContent = code;
     stateSummary.textContent = "No fictional pilot data is shown here yet. In a real rollout, this panel could invite donations, volunteers, or partnership expansion in this state.";
     detailMetrics.innerHTML = `
       <div class="detail-metric">
@@ -482,49 +240,39 @@ function renderState(code) {
     return;
   }
 
-  stateName.textContent = meta.name;
+  stateName.textContent = code;
   stateSummary.textContent = details.summary;
 
-  detailMetrics.innerHTML = details.metrics
-    .map(
-      (metric) => `
-        <div class="detail-metric">
-          <strong>${metric.value}</strong>
-          <span>${metric.label}</span>
-        </div>
-      `
-    )
-    .join("");
+  detailMetrics.innerHTML = details.metrics.map((metric) => `
+    <div class="detail-metric">
+      <strong>${metric.value}</strong>
+      <span>${metric.label}</span>
+    </div>
+  `).join("");
 
-  cityCount.textContent = `${details.cities.length} ${details.cities.length === 1 ? "city" : "cities"}`;
-  cityList.innerHTML = details.cities
-    .map((city) => `<span class="chip">${city}</span>`)
-    .join("");
+  cityCount.textContent = `${details.cities.length} cities`;
+  cityList.innerHTML = details.cities.map((city) => `<span class="chip">${city}</span>`).join("");
 
-  schoolCount.textContent = `${details.schools.length} ${details.schools.length === 1 ? "school" : "schools"}`;
-  schoolList.innerHTML = details.schools
-    .map(
-      (school) => `
-        <article class="school-card">
-          <h4>${school.name}</h4>
-          <div class="school-meta">
-            <span class="school-pill">${school.city}</span>
-            <span class="school-pill">${formatNumber(school.students)} students</span>
-            <span class="school-pill">${formatNumber(school.computers)} computers</span>
-          </div>
-          <p>${school.impact}</p>
-        </article>
-      `
-    )
-    .join("");
+  schoolCount.textContent = `${details.schools.length} schools`;
+  schoolList.innerHTML = details.schools.map((school) => `
+    <article class="school-card">
+      <h4>${school.name}</h4>
+      <div class="school-meta">
+        <span class="school-pill">${school.city}</span>
+        <span class="school-pill">${formatNumber(school.students)} students</span>
+        <span class="school-pill">${formatNumber(school.computers)} computers</span>
+      </div>
+      <p>${school.impact}</p>
+    </article>
+  `).join("");
 }
 
-function renderMap() {
-  stateGrid.forEach((state) => {
-    tileMap.appendChild(createTile(state));
-  });
-}
+states.forEach((state) => {
+  const code = state.dataset.code;
+  state.dataset.active = String(Boolean(stateDetails[code]));
+  state.addEventListener("mouseenter", () => renderState(code));
+  state.addEventListener("click", () => renderState(code));
+});
 
-renderMap();
 aggregateTotals();
 renderState(selectedCode);
