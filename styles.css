@@ -4,7 +4,7 @@
   --leaf: #8ec341;
   --ink: #17324d;
   --muted: #557089;
-  --panel: rgba(255, 255, 255, 0.86);
+  --panel: rgba(255, 255, 255, 0.9);
   --line: rgba(23, 50, 77, 0.12);
   --shadow: 0 24px 60px rgba(12, 59, 95, 0.14);
   --radius-xl: 32px;
@@ -111,10 +111,7 @@ a {
   border-radius: var(--radius-xl);
 }
 
-.hero-copy {
-  padding: 42px;
-}
-
+.hero-copy,
 .hero-panel,
 .map-card,
 .detail-panel {
@@ -163,6 +160,11 @@ span {
 p,
 li {
   color: var(--muted);
+}
+
+.lede {
+  font-size: 1.08rem;
+  max-width: 62ch;
 }
 
 .hero-actions {
@@ -225,14 +227,6 @@ li {
   padding-left: 18px;
 }
 
-.panel-band {
-  margin-top: 24px;
-  padding: 18px 20px;
-  border-radius: 22px;
-  background: linear-gradient(135deg, rgba(29, 118, 187, 0.1), rgba(142, 195, 65, 0.18));
-  color: var(--ink);
-}
-
 .section {
   padding: 72px 0 12px;
 }
@@ -285,7 +279,7 @@ li {
 
 .usa-map-wrap {
   margin-top: 24px;
-  overflow: hidden;
+  overflow: auto;
   border-radius: 26px;
   background:
     radial-gradient(circle at top left, rgba(142, 195, 65, 0.08), transparent 30%),
@@ -298,36 +292,44 @@ li {
   display: block;
   width: 100%;
   height: auto;
+  min-width: 760px;
 }
 
 .state {
-  fill: rgba(23, 50, 77, 0.08);
   stroke: rgba(255, 255, 255, 0.95);
   stroke-width: 3;
   cursor: pointer;
-  transition: fill 150ms ease, transform 150ms ease, filter 150ms ease;
+  transition: transform 150ms ease, filter 150ms ease, opacity 150ms ease;
   transform-box: fill-box;
   transform-origin: center;
 }
 
 .state:hover,
-.state:focus,
 .state.is-selected {
-  transform: translateY(-1px);
-  filter: drop-shadow(0 8px 18px rgba(17, 71, 112, 0.18));
-  outline: none;
+  transform: translateY(-2px);
+  filter: drop-shadow(0 10px 18px rgba(17, 71, 112, 0.18));
 }
 
 .state[data-active="true"] {
   fill: url(#activeGradient);
 }
 
-.state-active-fill {
-  fill: url(#activeGradient);
+.state[data-active="false"] {
+  fill: rgba(23, 50, 77, 0.12);
 }
 
-.state[data-active="false"] {
-  fill: rgba(23, 50, 77, 0.08);
+.state-label {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  pointer-events: none;
+  fill: #17324d;
+}
+
+.state-label.active {
+  fill: #ffffff;
 }
 
 .detail-summary {
@@ -351,11 +353,6 @@ li {
   font-family: "Space Grotesk", sans-serif;
   font-size: 1.45rem;
   color: var(--ink);
-}
-
-.detail-metric span {
-  font-size: 0.9rem;
-  color: var(--muted);
 }
 
 .detail-block + .detail-block {
