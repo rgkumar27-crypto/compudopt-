@@ -4,10 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Compudopt Impact Map Demo</title>
-  <meta
-    name="description"
-    content="A Compudopt-inspired concept site that visualizes fictional nationwide impact data by state, city, and school."
-  >
+  <meta name="description" content="A Compudopt-inspired concept site that visualizes fictional nationwide impact data by state, city, and school.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -21,11 +18,9 @@
           <span class="brand-mark">C</span>
           <span>Compudopt Impact Map</span>
         </a>
-
         <div class="nav-links">
           <a href="#map">Map</a>
           <a href="#impact">Impact</a>
-          <a href="#model">Model</a>
           <a href="#footer">Notes</a>
         </div>
       </nav>
@@ -35,9 +30,7 @@
           <p class="eyebrow">Case competition concept</p>
           <h1>A national impact map that makes Compudopt's local work feel visible, human, and scalable.</h1>
           <p class="lede">
-            This proposal imagines a donor-friendly web experience where visitors hover over a state,
-            see the cities and schools Compudopt has supported, and instantly understand the story behind
-            the numbers. All school and impact data in this demo is fictional and included only for presentation purposes.
+            This proposal imagines a donor-friendly web experience where visitors hover over a state, see the cities and schools Compudopt has supported, and instantly understand the story behind the numbers.
           </p>
 
           <div class="hero-actions">
@@ -66,12 +59,9 @@
           <ul class="story-list">
             <li>Turns a national footprint into something interactive for judges, donors, and partners.</li>
             <li>Combines emotional storytelling with credibility through school-level and city-level metrics.</li>
-            <li>Supports both hover exploration on desktop and click interaction on mobile devices.</li>
-            <li>Can later connect to real data from program operations, annual reports, or partner districts.</li>
+            <li>Supports hover exploration on desktop and tap interaction on mobile.</li>
+            <li>All data shown here is fictional for presentation use only.</li>
           </ul>
-          <div class="panel-band">
-            <strong>Suggested pitch:</strong> "Compudopt is already changing outcomes across communities. This map helps people see that impact, state by state."
-          </div>
         </aside>
       </section>
     </header>
@@ -81,10 +71,7 @@
         <div class="section-heading">
           <p class="eyebrow">Interactive map</p>
           <h2>Hover over a state to reveal the local story</h2>
-          <p>
-            The map below uses fictional impact data to demonstrate how a national Compudopt dashboard could feel.
-            Active states glow green and blue, while other states remain visible as future expansion opportunities.
-          </p>
+          <p>The map below uses simplified real-state positions with fictional impact data for a presentation-ready prototype.</p>
         </div>
 
         <div class="map-layout">
@@ -101,64 +88,13 @@
             </div>
 
             <div class="usa-map-wrap">
-              <svg id="usa-map" class="usa-map" viewBox="0 0 959 593" role="img" aria-label="Interactive United States map">
+              <svg id="usa-map" class="usa-map" viewBox="0 0 960 600" aria-label="Interactive United States map">
                 <defs>
                   <linearGradient id="activeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stop-color="#8ec341"></stop>
                     <stop offset="100%" stop-color="#1d76bb"></stop>
                   </linearGradient>
                 </defs>
-
-                <path class="state" data-code="WA" d="M84 83 L143 83 L144 118 L132 138 L97 138 L84 122 Z"></path>
-                <path class="state" data-code="OR" d="M87 142 L145 142 L144 199 L103 199 L88 179 Z"></path>
-                <path class="state" data-code="CA" d="M89 204 L143 204 L158 282 L145 338 L120 360 L103 340 L114 316 L96 292 Z"></path>
-                <path class="state" data-code="ID" d="M150 107 L192 107 L199 199 L161 199 L146 173 L153 139 Z"></path>
-                <path class="state" data-code="NV" d="M147 205 L191 205 L205 297 L167 306 Z"></path>
-                <path class="state" data-code="MT" d="M201 87 L294 87 L294 147 L203 147 Z"></path>
-                <path class="state" data-code="WY" d="M207 155 L286 155 L286 211 L207 211 Z"></path>
-                <path class="state" data-code="UT" d="M197 219 L250 219 L250 296 L208 296 Z"></path>
-                <path class="state" data-code="AZ" d="M196 303 L252 303 L249 370 L213 392 L190 371 Z"></path>
-                <path class="state" data-code="CO" d="M258 221 L333 221 L333 296 L258 296 Z"></path>
-                <path class="state" data-code="NM" d="M258 303 L333 303 L333 381 L258 381 Z"></path>
-                <path class="state" data-code="ND" d="M305 90 L381 90 L381 143 L305 143 Z"></path>
-                <path class="state" data-code="SD" d="M304 149 L382 149 L382 210 L304 210 Z"></path>
-                <path class="state" data-code="NE" d="M304 217 L391 217 L391 265 L304 265 Z"></path>
-                <path class="state" data-code="KS" d="M304 271 L391 271 L391 317 L304 317 Z"></path>
-                <path class="state" data-code="OK" d="M302 324 L405 324 L405 365 L360 365 L349 382 L303 382 Z"></path>
-                <path class="state" data-code="TX" d="M303 389 L405 389 L424 430 L454 448 L438 491 L389 502 L359 466 L322 458 L303 425 Z"></path>
-                <path class="state" data-code="MN" d="M390 88 L447 88 L465 112 L454 146 L404 146 L390 127 Z"></path>
-                <path class="state" data-code="IA" d="M394 218 L451 218 L459 252 L401 252 L394 238 Z"></path>
-                <path class="state" data-code="MO" d="M398 258 L455 258 L469 318 L430 341 L402 316 Z"></path>
-                <path class="state" data-code="AR" d="M403 325 L452 325 L458 381 L411 381 Z"></path>
-                <path class="state" data-code="LA" d="M408 388 L453 388 L466 445 L442 470 L416 447 L421 415 Z"></path>
-                <path class="state" data-code="WI" d="M456 89 L500 89 L512 120 L498 161 L463 161 L455 136 Z"></path>
-                <path class="state" data-code="IL" d="M469 169 L505 169 L512 251 L489 279 L471 260 Z"></path>
-                <path class="state" data-code="MS" d="M464 388 L503 388 L505 460 L475 460 L464 430 Z"></path>
-                <path class="state" data-code="MI" d="M520 115 L577 115 L597 152 L576 188 L537 179 L520 145 Z"></path>
-                <path class="state" data-code="IN" d="M513 171 L548 171 L550 251 L517 251 Z"></path>
-                <path class="state" data-code="KY" d="M525 259 L603 259 L624 282 L610 299 L548 299 L526 285 Z"></path>
-                <path class="state" data-code="TN" d="M520 309 L609 309 L593 332 L522 332 Z"></path>
-                <path class="state" data-code="AL" d="M510 389 L547 389 L551 459 L520 459 Z"></path>
-                <path class="state" data-code="GA" d="M554 388 L604 388 L622 441 L597 468 L555 442 Z"></path>
-                <path class="state" data-code="FL" d="M610 446 L656 446 L681 485 L654 552 L622 535 L632 489 Z"></path>
-                <path class="state" data-code="OH" d="M557 171 L602 171 L605 248 L563 248 Z"></path>
-                <path class="state" data-code="WV" d="M607 222 L641 222 L649 271 L624 284 L604 257 Z"></path>
-                <path class="state" data-code="PA" d="M610 178 L686 178 L689 223 L614 223 Z"></path>
-                <path class="state" data-code="VA" d="M649 259 L736 259 L703 298 L648 289 Z"></path>
-                <path class="state" data-code="NC" d="M646 306 L733 306 L759 325 L737 347 L653 343 Z"></path>
-                <path class="state" data-code="SC" d="M627 351 L673 351 L691 392 L656 418 L629 391 Z"></path>
-                <path class="state" data-code="NY" d="M691 135 L758 135 L773 169 L743 197 L693 184 Z"></path>
-                <path class="state" data-code="NJ" d="M695 225 L718 225 L721 277 L699 289 Z"></path>
-                <path class="state" data-code="MD" d="M690 247 L731 247 L733 274 L690 274 Z"></path>
-                <path class="state" data-code="DE" d="M725 226 L741 226 L743 273 L728 273 Z"></path>
-                <path class="state" data-code="VT" d="M760 108 L780 108 L780 150 L760 150 Z"></path>
-                <path class="state" data-code="NH" d="M784 103 L806 103 L805 155 L784 155 Z"></path>
-                <path class="state" data-code="ME" d="M808 82 L858 82 L846 156 L805 156 Z"></path>
-                <path class="state" data-code="MA" d="M759 164 L815 164 L815 191 L759 191 Z"></path>
-                <path class="state" data-code="CT" d="M759 198 L803 198 L803 220 L759 220 Z"></path>
-                <path class="state" data-code="RI" d="M807 196 L821 196 L821 220 L807 220 Z"></path>
-                <path class="state" data-code="AK" d="M48 467 L117 467 L118 510 L79 510 L61 494 Z"></path>
-                <path class="state" data-code="HI" d="M145 528 L189 528 L197 557 L160 557 Z"></path>
               </svg>
             </div>
           </div>
@@ -166,9 +102,7 @@
           <aside class="detail-panel" aria-live="polite">
             <p class="mini-label">State snapshot</p>
             <h3 id="state-name">Texas</h3>
-            <p class="detail-summary" id="state-summary">
-              Fictional pilot data for major metro partnerships, school distributions, and student reach.
-            </p>
+            <p class="detail-summary" id="state-summary">Fictional pilot data for major metro partnerships, school distributions, and student reach.</p>
 
             <div class="detail-metrics" id="detail-metrics"></div>
 
@@ -195,10 +129,7 @@
         <div class="section-heading">
           <p class="eyebrow">Impact framing</p>
           <h2>What judges should be able to learn in seconds</h2>
-          <p>
-            A real-shape U.S. map makes the concept feel more familiar and intuitive for donors and judges,
-            while still supporting city-level, school-level, and state-level storytelling.
-          </p>
+          <p>A familiar U.S. outline paired with school-level impact cards makes the concept easier to understand quickly.</p>
         </div>
       </section>
     </main>
