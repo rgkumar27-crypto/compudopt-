@@ -82,8 +82,8 @@
           <p class="eyebrow">Interactive map</p>
           <h2>Hover over a state to reveal the local story</h2>
           <p>
-            The tile map below uses fictional impact data to demonstrate how a national Compudopt dashboard could feel.
-            States with active sample data glow green. States without sample data stay visible as future expansion opportunities.
+            The map below uses fictional impact data to demonstrate how a national Compudopt dashboard could feel.
+            Active states glow green and blue, while other states remain visible as future expansion opportunities.
           </p>
         </div>
 
@@ -100,10 +100,63 @@
               </div>
             </div>
 
-            <div class="tile-map" id="tile-map" aria-label="Interactive United States tile map"></div>
+            <div class="usa-map-wrap">
+              <svg id="usa-map" class="usa-map" viewBox="0 0 959 593" role="img" aria-label="Interactive United States map">
+                <path class="state" data-code="WA" d="M84 83 L143 83 L144 118 L132 138 L97 138 L84 122 Z"></path>
+                <path class="state" data-code="OR" d="M87 142 L145 142 L144 199 L103 199 L88 179 Z"></path>
+                <path class="state" data-code="CA" d="M89 204 L143 204 L158 282 L145 338 L120 360 L103 340 L114 316 L96 292 Z"></path>
+                <path class="state" data-code="ID" d="M150 107 L192 107 L199 199 L161 199 L146 173 L153 139 Z"></path>
+                <path class="state" data-code="NV" d="M147 205 L191 205 L205 297 L167 306 Z"></path>
+                <path class="state" data-code="MT" d="M201 87 L294 87 L294 147 L203 147 Z"></path>
+                <path class="state" data-code="WY" d="M207 155 L286 155 L286 211 L207 211 Z"></path>
+                <path class="state" data-code="UT" d="M197 219 L250 219 L250 296 L208 296 Z"></path>
+                <path class="state" data-code="AZ" d="M196 303 L252 303 L249 370 L213 392 L190 371 Z"></path>
+                <path class="state" data-code="CO" d="M258 221 L333 221 L333 296 L258 296 Z"></path>
+                <path class="state" data-code="NM" d="M258 303 L333 303 L333 381 L258 381 Z"></path>
+                <path class="state" data-code="ND" d="M305 90 L381 90 L381 143 L305 143 Z"></path>
+                <path class="state" data-code="SD" d="M304 149 L382 149 L382 210 L304 210 Z"></path>
+                <path class="state" data-code="NE" d="M304 217 L391 217 L391 265 L304 265 Z"></path>
+                <path class="state" data-code="KS" d="M304 271 L391 271 L391 317 L304 317 Z"></path>
+                <path class="state" data-code="OK" d="M302 324 L405 324 L405 365 L360 365 L349 382 L303 382 Z"></path>
+                <path class="state" data-code="TX" d="M303 389 L405 389 L424 430 L454 448 L438 491 L389 502 L359 466 L322 458 L303 425 Z"></path>
+                <path class="state" data-code="MN" d="M390 88 L447 88 L465 112 L454 146 L404 146 L390 127 Z"></path>
+                <path class="state" data-code="IA" d="M394 218 L451 218 L459 252 L401 252 L394 238 Z"></path>
+                <path class="state" data-code="MO" d="M398 258 L455 258 L469 318 L430 341 L402 316 Z"></path>
+                <path class="state" data-code="AR" d="M403 325 L452 325 L458 381 L411 381 Z"></path>
+                <path class="state" data-code="LA" d="M408 388 L453 388 L466 445 L442 470 L416 447 L421 415 Z"></path>
+                <path class="state" data-code="WI" d="M456 89 L500 89 L512 120 L498 161 L463 161 L455 136 Z"></path>
+                <path class="state" data-code="IL" d="M469 169 L505 169 L512 251 L489 279 L471 260 Z"></path>
+                <path class="state" data-code="MS" d="M464 388 L503 388 L505 460 L475 460 L464 430 Z"></path>
+                <path class="state" data-code="MI" d="M520 115 L577 115 L597 152 L576 188 L537 179 L520 145 Z"></path>
+                <path class="state" data-code="IN" d="M513 171 L548 171 L550 251 L517 251 Z"></path>
+                <path class="state" data-code="KY" d="M525 259 L603 259 L624 282 L610 299 L548 299 L526 285 Z"></path>
+                <path class="state" data-code="TN" d="M520 309 L609 309 L593 332 L522 332 Z"></path>
+                <path class="state" data-code="AL" d="M510 389 L547 389 L551 459 L520 459 Z"></path>
+                <path class="state" data-code="GA" d="M554 388 L604 388 L622 441 L597 468 L555 442 Z"></path>
+                <path class="state" data-code="FL" d="M610 446 L656 446 L681 485 L654 552 L622 535 L632 489 Z"></path>
+                <path class="state" data-code="OH" d="M557 171 L602 171 L605 248 L563 248 Z"></path>
+                <path class="state" data-code="WV" d="M607 222 L641 222 L649 271 L624 284 L604 257 Z"></path>
+                <path class="state" data-code="PA" d="M610 178 L686 178 L689 223 L614 223 Z"></path>
+                <path class="state" data-code="VA" d="M649 259 L736 259 L703 298 L648 289 Z"></path>
+                <path class="state" data-code="NC" d="M646 306 L733 306 L759 325 L737 347 L653 343 Z"></path>
+                <path class="state" data-code="SC" d="M627 351 L673 351 L691 392 L656 418 L629 391 Z"></path>
+                <path class="state" data-code="NY" d="M691 135 L758 135 L773 169 L743 197 L693 184 Z"></path>
+                <path class="state" data-code="NJ" d="M695 225 L718 225 L721 277 L699 289 Z"></path>
+                <path class="state" data-code="MD" d="M690 247 L731 247 L733 274 L690 274 Z"></path>
+                <path class="state" data-code="DE" d="M725 226 L741 226 L743 273 L728 273 Z"></path>
+                <path class="state" data-code="VT" d="M760 108 L780 108 L780 150 L760 150 Z"></path>
+                <path class="state" data-code="NH" d="M784 103 L806 103 L805 155 L784 155 Z"></path>
+                <path class="state" data-code="ME" d="M808 82 L858 82 L846 156 L805 156 Z"></path>
+                <path class="state" data-code="MA" d="M759 164 L815 164 L815 191 L759 191 Z"></path>
+                <path class="state" data-code="CT" d="M759 198 L803 198 L803 220 L759 220 Z"></path>
+                <path class="state" data-code="RI" d="M807 196 L821 196 L821 220 L807 220 Z"></path>
+                <path class="state" data-code="AK" d="M48 467 L117 467 L118 510 L79 510 L61 494 Z"></path>
+                <path class="state" data-code="HI" d="M145 528 L189 528 L197 557 L160 557 Z"></path>
+              </svg>
+            </div>
           </div>
 
-          <aside class="detail-panel" id="detail-panel" aria-live="polite">
+          <aside class="detail-panel" aria-live="polite">
             <p class="mini-label">State snapshot</p>
             <h3 id="state-name">Texas</h3>
             <p class="detail-summary" id="state-summary">
@@ -128,54 +181,6 @@
               <div class="school-list" id="school-list"></div>
             </section>
           </aside>
-        </div>
-      </section>
-
-      <section class="section" id="impact">
-        <div class="section-heading">
-          <p class="eyebrow">Impact framing</p>
-          <h2>What judges should be able to learn in seconds</h2>
-        </div>
-
-        <div class="insight-grid">
-          <article class="insight-card">
-            <h3>Where Compudopt works</h3>
-            <p>Visitors can scan the country, identify active states, and zoom into city-level relationships without reading a long report first.</p>
-          </article>
-          <article class="insight-card">
-            <h3>Who is being reached</h3>
-            <p>Each state can show students supported, households connected, devices distributed, and training sessions delivered.</p>
-          </article>
-          <article class="insight-card">
-            <h3>Why the work matters</h3>
-            <p>School cards can summarize fictional outcomes like attendance lift, homework completion, device access, and digital literacy gains.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section accent-section" id="model">
-        <div class="section-heading">
-          <p class="eyebrow">Data model</p>
-          <h2>Simple enough for a demo, expandable enough for the real thing</h2>
-          <p>
-            This prototype is powered by a single JavaScript object. Later, the same structure could be replaced by a CMS,
-            Airtable, Google Sheets, or a nonprofit operations database.
-          </p>
-        </div>
-
-        <div class="model-grid">
-          <article class="model-card">
-            <h3>State level</h3>
-            <p>Name, short narrative, headline metrics, and whether the state has active data.</p>
-          </article>
-          <article class="model-card">
-            <h3>City level</h3>
-            <p>Major service regions, hubs, or school district clusters that help visitors understand geographic spread.</p>
-          </article>
-          <article class="model-card">
-            <h3>School level</h3>
-            <p>School names, device counts, student counts, and sample outcome language tailored for storytelling.</p>
-          </article>
         </div>
       </section>
     </main>
