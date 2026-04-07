@@ -19,6 +19,10 @@ const texasData = {
         { name: "Rio Vista Academy", students: 420, computers: 310, impact: "Homework completion rose in the fictional case study after home device access improved." },
         { name: "Franklin Tech Middle", students: 360, computers: 280, impact: "Digital project participation increased across eighth grade classrooms." },
         { name: "Desert Trails Prep", students: 290, computers: 215, impact: "Teachers reported better student consistency on online assignments." }
+      ],
+      photos: [
+        { src: "https://picsum.photos/seed/elpaso-1/600/400", alt: "Students using computers in El Paso", caption: "Mock El Paso classroom technology rollout." },
+        { src: "https://picsum.photos/seed/elpaso-2/600/400", alt: "Family workshop in El Paso", caption: "Sample family digital access event in El Paso." }
       ]
     },
     {
@@ -32,6 +36,10 @@ const texasData = {
         { name: "Red River STEM Academy", students: 510, computers: 395, impact: "The demo case links device access to stronger attendance in blended-learning periods." },
         { name: "Oak Cliff Future Leaders", students: 430, computers: 330, impact: "Families in the mock program had more reliable access to school platforms." },
         { name: "North Dallas Pathways", students: 320, computers: 250, impact: "Students showed improved submission rates on digital homework." }
+      ],
+      photos: [
+        { src: "https://picsum.photos/seed/dallas-1/600/400", alt: "Students in Dallas classroom", caption: "Mock Dallas student device distribution." },
+        { src: "https://picsum.photos/seed/dallas-2/600/400", alt: "Dallas computer lab", caption: "Sample Dallas digital learning lab." }
       ]
     },
     {
@@ -46,6 +54,10 @@ const texasData = {
         { name: "Third Ward Innovation School", students: 470, computers: 360, impact: "Students used devices to complete collaborative projects more consistently." },
         { name: "Aldine Futures Campus", students: 390, computers: 300, impact: "Families in the demo had increased engagement during technology workshops." },
         { name: "East End Learning Hub", students: 310, computers: 240, impact: "School staff described stronger confidence using digital learning platforms." }
+      ],
+      photos: [
+        { src: "https://picsum.photos/seed/houston-1/600/400", alt: "Students using laptops in Houston", caption: "Mock Houston classroom technology rollout." },
+        { src: "https://picsum.photos/seed/houston-2/600/400", alt: "Houston family tech workshop", caption: "Sample Houston family digital access workshop." }
       ]
     },
     {
@@ -57,6 +69,10 @@ const texasData = {
       schools: [
         { name: "Mission Verde Intermediate", students: 560, computers: 410, impact: "Device distribution paired with family tech nights raised parent engagement in the demo scenario." },
         { name: "River City Scholars", students: 380, computers: 290, impact: "The fictional case ties device access to improved class participation and research skills." }
+      ],
+      photos: [
+        { src: "https://picsum.photos/seed/sanantonio-1/600/400", alt: "Students in San Antonio school", caption: "Mock San Antonio campus technology story." },
+        { src: "https://picsum.photos/seed/sanantonio-2/600/400", alt: "San Antonio school workshop", caption: "Sample San Antonio family tech night." }
       ]
     }
   ]
@@ -69,6 +85,8 @@ const cityList = document.querySelector("#city-list");
 const cityCount = document.querySelector("#city-count");
 const schoolList = document.querySelector("#school-list");
 const schoolCount = document.querySelector("#school-count");
+const photoGrid = document.querySelector("#photo-grid");
+const photoCount = document.querySelector("#photo-count");
 
 function formatNumber(value) {
   return new Intl.NumberFormat("en-US").format(value);
@@ -93,6 +111,14 @@ function renderTexasOverview() {
     <article class="school-card">
       <h4>Choose a city flag</h4>
       <p>Click a Texas city flag on the map to load fictional school-level impact distributions for that metro area.</p>
+    </article>
+  `;
+
+  photoCount.textContent = "1 photo";
+  photoGrid.innerHTML = `
+    <article class="photo-card">
+      <img src="https://picsum.photos/seed/texas-overview/600/400" alt="Texas placeholder photo">
+      <p>Hover Texas and click a city flag to load city-specific placeholder photos.</p>
     </article>
   `;
 }
@@ -140,6 +166,15 @@ function renderCity(cityKey) {
         <span class="school-pill">${formatNumber(school.computers)} computers</span>
       </div>
       <p>${school.impact}</p>
+    </article>
+  `).join("");
+
+  const photos = city.photos || [];
+  photoCount.textContent = `${photos.length} ${photos.length === 1 ? "photo" : "photos"}`;
+  photoGrid.innerHTML = photos.map((photo) => `
+    <article class="photo-card">
+      <img src="${photo.src}" alt="${photo.alt}">
+      <p>${photo.caption}</p>
     </article>
   `).join("");
 }
