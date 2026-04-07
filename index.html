@@ -18,6 +18,7 @@
           <span class="brand-mark">C</span>
           <span>Compudopt Impact Map</span>
         </a>
+
         <div class="nav-links">
           <a href="#map">Map</a>
           <a href="#impact">Impact</a>
@@ -30,7 +31,9 @@
           <p class="eyebrow">Case competition concept</p>
           <h1>A national impact map that makes Compudopt's local work feel visible, human, and scalable.</h1>
           <p class="lede">
-            This proposal imagines a donor-friendly web experience where visitors hover over a state, see the cities and schools Compudopt has supported, and instantly understand the story behind the numbers.
+            This proposal imagines a donor-friendly web experience where visitors hover over a state,
+            see the cities and schools Compudopt has supported, and instantly understand the story behind the numbers.
+            All data shown here is fictional for presentation purposes only.
           </p>
 
           <div class="hero-actions">
@@ -57,11 +60,14 @@
         <aside class="hero-panel">
           <p class="panel-label">Why this concept works</p>
           <ul class="story-list">
-            <li>Turns a national footprint into something interactive for judges, donors, and partners.</li>
-            <li>Combines emotional storytelling with credibility through school-level and city-level metrics.</li>
-            <li>Supports hover exploration on desktop and tap interaction on mobile.</li>
-            <li>All data shown here is fictional for presentation use only.</li>
+            <li>Shows a real national footprint instantly.</li>
+            <li>Pairs geography with school-level storytelling.</li>
+            <li>Feels closer to a donor-facing product demo.</li>
+            <li>Can later connect to real operational data.</li>
           </ul>
+          <div class="panel-band">
+            <strong>Suggested pitch:</strong> "Compudopt is already changing outcomes across communities. This map helps people see that impact, state by state."
+          </div>
         </aside>
       </section>
     </header>
@@ -71,7 +77,10 @@
         <div class="section-heading">
           <p class="eyebrow">Interactive map</p>
           <h2>Hover over a state to reveal the local story</h2>
-          <p>The map below uses simplified real-state positions with fictional impact data for a presentation-ready prototype.</p>
+          <p>
+            Active sample states are highlighted in a Compudopt-inspired green-to-blue gradient.
+            Hover or click any state to update the detail panel.
+          </p>
         </div>
 
         <div class="map-layout">
@@ -88,21 +97,16 @@
             </div>
 
             <div class="usa-map-wrap">
-              <svg id="usa-map" class="usa-map" viewBox="0 0 960 600" aria-label="Interactive United States map">
-                <defs>
-                  <linearGradient id="activeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#8ec341"></stop>
-                    <stop offset="100%" stop-color="#1d76bb"></stop>
-                  </linearGradient>
-                </defs>
-              </svg>
+              <svg id="usa-map" class="usa-map" viewBox="0 0 975 610" aria-label="Interactive United States map"></svg>
             </div>
           </div>
 
           <aside class="detail-panel" aria-live="polite">
             <p class="mini-label">State snapshot</p>
             <h3 id="state-name">Texas</h3>
-            <p class="detail-summary" id="state-summary">Fictional pilot data for major metro partnerships, school distributions, and student reach.</p>
+            <p class="detail-summary" id="state-summary">
+              Fictional pilot data for major metro partnerships, school distributions, and student reach.
+            </p>
 
             <div class="detail-metrics" id="detail-metrics"></div>
 
@@ -129,7 +133,10 @@
         <div class="section-heading">
           <p class="eyebrow">Impact framing</p>
           <h2>What judges should be able to learn in seconds</h2>
-          <p>A familiar U.S. outline paired with school-level impact cards makes the concept easier to understand quickly.</p>
+          <p>
+            A real U.S. map feels more intuitive than a tile grid while still supporting quick storytelling:
+            where Compudopt works, who it reaches, and how schools are impacted.
+          </p>
         </div>
       </section>
     </main>
@@ -140,6 +147,8 @@
     </footer>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
   <script src="./script.js"></script>
 </body>
 </html>
