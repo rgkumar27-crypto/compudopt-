@@ -168,12 +168,13 @@ async function drawMap() {
   const projection = d3.geoAlbersUsa().fitSize([width, height], nation);
   const path = d3.geoPath(projection);
 
-  const g = svg.append("g");
-  const markerLayer = svg.append("g").attr("class", "marker-layer");
+  const rootLayer = svg.append("g").attr("class", "root-layer");
+  const statesLayer = rootLayer.append("g").attr("class", "states-layer");
+  const markerLayer = rootLayer.append("g").attr("class", "marker-layer");
 
   let texasActive = false;
 
-  const stateSelection = g.selectAll("path")
+  const stateSelection = statesLayer.selectAll("path")
     .data(states)
     .join("path")
     .attr("class", (d) => {
@@ -189,14 +190,16 @@ async function drawMap() {
   const texasDy = texasBounds[1][1] - texasBounds[0][1];
   const texasX = (texasBounds[0][0] + texasBounds[1][0]) / 2;
   const texasY = (texasBounds[0][1] + texasBounds[1][1]) / 2;
-  const scale = Math.min(3, 0.72 / Math.max(texasDx / width, texasDy / height));
+
+  const scale = Math.min(4.8, 1.15 / Math.max(texasDx / width, texasDy / height));
   const translate = [width / 2 - scale * texasX, height / 2 - scale * texasY];
 
   function setTexasZoom(active) {
     texasActive = active;
 
-    g.transition()
-      .duration(500)
+    rootLayer.transition()
+      .duration(650)
+      .ease(d3.easeCubicOut)
       .attr("transform", active ? `translate(${translate[0]},${translate[1]}) scale(${scale})` : "translate(0,0) scale(1)");
 
     markerLayer.selectAll(".city-marker")
