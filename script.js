@@ -1,292 +1,65 @@
-const fipsToState = {
-  "01": { code: "AL", name: "Alabama" },
-  "02": { code: "AK", name: "Alaska" },
-  "04": { code: "AZ", name: "Arizona" },
-  "05": { code: "AR", name: "Arkansas" },
-  "06": { code: "CA", name: "California" },
-  "08": { code: "CO", name: "Colorado" },
-  "09": { code: "CT", name: "Connecticut" },
-  "10": { code: "DE", name: "Delaware" },
-  "12": { code: "FL", name: "Florida" },
-  "13": { code: "GA", name: "Georgia" },
-  "15": { code: "HI", name: "Hawaii" },
-  "16": { code: "ID", name: "Idaho" },
-  "17": { code: "IL", name: "Illinois" },
-  "18": { code: "IN", name: "Indiana" },
-  "19": { code: "IA", name: "Iowa" },
-  "20": { code: "KS", name: "Kansas" },
-  "21": { code: "KY", name: "Kentucky" },
-  "22": { code: "LA", name: "Louisiana" },
-  "23": { code: "ME", name: "Maine" },
-  "24": { code: "MD", name: "Maryland" },
-  "25": { code: "MA", name: "Massachusetts" },
-  "26": { code: "MI", name: "Michigan" },
-  "27": { code: "MN", name: "Minnesota" },
-  "28": { code: "MS", name: "Mississippi" },
-  "29": { code: "MO", name: "Missouri" },
-  "30": { code: "MT", name: "Montana" },
-  "31": { code: "NE", name: "Nebraska" },
-  "32": { code: "NV", name: "Nevada" },
-  "33": { code: "NH", name: "New Hampshire" },
-  "34": { code: "NJ", name: "New Jersey" },
-  "35": { code: "NM", name: "New Mexico" },
-  "36": { code: "NY", name: "New York" },
-  "37": { code: "NC", name: "North Carolina" },
-  "38": { code: "ND", name: "North Dakota" },
-  "39": { code: "OH", name: "Ohio" },
-  "40": { code: "OK", name: "Oklahoma" },
-  "41": { code: "OR", name: "Oregon" },
-  "42": { code: "PA", name: "Pennsylvania" },
-  "44": { code: "RI", name: "Rhode Island" },
-  "45": { code: "SC", name: "South Carolina" },
-  "46": { code: "SD", name: "South Dakota" },
-  "47": { code: "TN", name: "Tennessee" },
-  "48": { code: "TX", name: "Texas" },
-  "49": { code: "UT", name: "Utah" },
-  "50": { code: "VT", name: "Vermont" },
-  "51": { code: "VA", name: "Virginia" },
-  "53": { code: "WA", name: "Washington" },
-  "54": { code: "WV", name: "West Virginia" },
-  "55": { code: "WI", name: "Wisconsin" },
-  "56": { code: "WY", name: "Wyoming" }
-};
+const TEXAS_FIPS = "48";
 
-const stateDetails = {
-  TX: {
-    name: "Texas",
-    summary: "Houston, Dallas, and San Antonio pilot programs show how Compudopt could present both scale and school-level outcomes in one place.",
-    metrics: [
-      { label: "Students reached", value: "5,800" },
-      { label: "Computers placed", value: "4,650" },
-      { label: "Schools supported", value: "9" },
-      { label: "Training sessions", value: "115" }
-    ],
-    cities: ["Houston", "Dallas", "San Antonio", "El Paso"],
-    schools: [
-      { name: "Northline STEM Academy", city: "Houston", students: 820, computers: 620, impact: "Teachers reported stronger homework completion after students received take-home devices." },
-      { name: "East Dallas College Prep", city: "Dallas", students: 690, computers: 540, impact: "A fictional digital literacy lab helped ninth graders complete more online coursework independently." },
-      { name: "Mission Verde Intermediate", city: "San Antonio", students: 560, computers: 410, impact: "Device distribution paired with family tech nights raised parent engagement in the demo scenario." }
-    ],
-    photos: [
-      { src: "https://picsum.photos/seed/compudopt-texas-1/600/400", alt: "Students using laptops in class", caption: "Fictional Houston classroom technology rollout." },
-      { src: "https://picsum.photos/seed/compudopt-texas-2/600/400", alt: "Computer lab with students", caption: "Sample Dallas digital access lab." },
-      { src: "https://picsum.photos/seed/compudopt-texas-3/600/400", alt: "Family training event", caption: "Mock San Antonio family tech workshop." },
-      { src: "https://picsum.photos/seed/compudopt-texas-4/600/400", alt: "Students collaborating on devices", caption: "Placeholder statewide impact image." }
-    ]
-  },
-  CA: {
-    name: "California",
-    summary: "California demonstrates how the map can spotlight regional variety across urban and suburban school partnerships.",
-    metrics: [
-      { label: "Students reached", value: "3,950" },
-      { label: "Computers placed", value: "3,120" },
-      { label: "Schools supported", value: "7" },
-      { label: "Training sessions", value: "81" }
-    ],
-    cities: ["Los Angeles", "Oakland", "San Diego"],
-    schools: [
-      { name: "Pacific Horizon Middle", city: "Los Angeles", students: 710, computers: 560, impact: "The sample story highlights improved project completion in blended learning classes." },
-      { name: "Laney Bridge Academy", city: "Oakland", students: 510, computers: 430, impact: "School leaders in this fictional example saw more students using digital portfolios." },
-      { name: "Harbor Point Charter", city: "San Diego", students: 470, computers: 355, impact: "The demo data frames device access as a bridge to after-school coding participation." }
-    ],
-    photos: [
-      { src: "https://picsum.photos/seed/compudopt-california-1/600/400", alt: "Students in modern classroom", caption: "Mock Los Angeles school technology day." },
-      { src: "https://picsum.photos/seed/compudopt-california-2/600/400", alt: "Laptop distribution event", caption: "Fictional Oakland community device handoff." },
-      { src: "https://picsum.photos/seed/compudopt-california-3/600/400", alt: "Students in media lab", caption: "Sample San Diego digital media lab." },
-      { src: "https://picsum.photos/seed/compudopt-california-4/600/400", alt: "Students collaborating", caption: "Placeholder statewide photo story." }
-    ]
-  },
-  IL: {
-    name: "Illinois",
-    summary: "Illinois can represent Midwest urban impact with school access, household support, and digital upskilling.",
-    metrics: [
-      { label: "Students reached", value: "1,850" },
-      { label: "Computers placed", value: "1,420" },
-      { label: "Schools supported", value: "4" },
-      { label: "Training sessions", value: "39" }
-    ],
-    cities: ["Chicago", "Aurora"],
-    schools: [
-      { name: "South Loop Innovation School", city: "Chicago", students: 430, computers: 310, impact: "The fictional dashboard shows attendance gains during weeks with major digital assignments." },
-      { name: "Fox Valley Learning Center", city: "Aurora", students: 360, computers: 280, impact: "Students in the demo scenario had more reliable access to college and career resources." }
-    ],
-    photos: [
-      { src: "https://picsum.photos/seed/compudopt-illinois-1/600/400", alt: "School laptop cart", caption: "Fictional Chicago classroom device access." },
-      { src: "https://picsum.photos/seed/compudopt-illinois-2/600/400", alt: "Students using computers", caption: "Sample Aurora digital learning session." }
-    ]
-  },
-  FL: {
-    name: "Florida",
-    summary: "Florida presents a strong statewide story for donors who want to see growth across several metro areas.",
-    metrics: [
-      { label: "Students reached", value: "2,600" },
-      { label: "Computers placed", value: "2,050" },
-      { label: "Schools supported", value: "5" },
-      { label: "Training sessions", value: "54" }
-    ],
-    cities: ["Miami", "Orlando", "Tampa"],
-    schools: [
-      { name: "Little River Tech Academy", city: "Miami", students: 520, computers: 430, impact: "Sample family surveys indicate more students could complete homework from home." },
-      { name: "Orange Grove Middle", city: "Orlando", students: 410, computers: 310, impact: "The proposal frames Compudopt as a partner in reducing device-sharing across households." }
-    ],
-    photos: [
-      { src: "https://picsum.photos/seed/compudopt-florida-1/600/400", alt: "Students with laptops", caption: "Fictional Miami student device distribution." },
-      { src: "https://picsum.photos/seed/compudopt-florida-2/600/400", alt: "Training workshop", caption: "Sample Orlando family digital skills workshop." }
-    ]
-  },
-  GA: {
-    name: "Georgia",
-    summary: "Georgia emphasizes how city-level storytelling can anchor a broader statewide service narrative.",
-    metrics: [
-      { label: "Students reached", value: "1,480" },
-      { label: "Computers placed", value: "1,120" },
-      { label: "Schools supported", value: "3" },
-      { label: "Training sessions", value: "27" }
-    ],
-    cities: ["Atlanta", "Savannah"],
-    schools: [
-      { name: "Peachtree Youth Academy", city: "Atlanta", students: 380, computers: 280, impact: "The fictional results suggest improved confidence using learning platforms and shared documents." },
-      { name: "Harbor Oaks K-8", city: "Savannah", students: 260, computers: 200, impact: "This demo card highlights increased participation in digital reading and STEM modules." }
-    ],
-    photos: [
-      { src: "https://picsum.photos/seed/compudopt-georgia-1/600/400", alt: "Students in tech class", caption: "Mock Atlanta school technology initiative." },
-      { src: "https://picsum.photos/seed/compudopt-georgia-2/600/400", alt: "Community learning event", caption: "Sample Savannah family tech night." }
-    ]
-  },
-  NC: {
-    name: "North Carolina",
-    summary: "North Carolina illustrates how the concept could scale through district partnerships and regional hubs.",
-    metrics: [
-      { label: "Students reached", value: "1,720" },
-      { label: "Computers placed", value: "1,340" },
-      { label: "Schools supported", value: "4" },
-      { label: "Training sessions", value: "33" }
-    ],
-    cities: ["Charlotte", "Raleigh", "Greensboro"],
-    schools: [
-      { name: "Queen City Pathways", city: "Charlotte", students: 460, computers: 340, impact: "Counselors in the fictional case note stronger college application completion." },
-      { name: "Capital Futures Magnet", city: "Raleigh", students: 330, computers: 255, impact: "The school profile shows improved access to career certifications and online tutorials." }
-    ],
-    photos: [
-      { src: "https://picsum.photos/seed/compudopt-nc-1/600/400", alt: "Students in digital class", caption: "Fictional Charlotte career-readiness classroom." },
-      { src: "https://picsum.photos/seed/compudopt-nc-2/600/400", alt: "Student workshop", caption: "Sample Raleigh digital access training event." }
-    ]
-  },
-  NY: {
-    name: "New York",
-    summary: "New York adds an East Coast example focused on dense population centers and measurable school-level benefits.",
-    metrics: [
-      { label: "Students reached", value: "1,930" },
-      { label: "Computers placed", value: "1,510" },
-      { label: "Schools supported", value: "4" },
-      { label: "Training sessions", value: "42" }
-    ],
-    cities: ["New York City", "Buffalo"],
-    schools: [
-      { name: "Bronx Forward Academy", city: "New York City", students: 520, computers: 410, impact: "The demo outcome centers on better digital attendance and assignment submission rates." },
-      { name: "Lake Effect Prep", city: "Buffalo", students: 290, computers: 220, impact: "Teachers in the fictional narrative used new devices to support math tutoring outside school hours." }
-    ],
-    photos: [
-      { src: "https://picsum.photos/seed/compudopt-ny-1/600/400", alt: "Urban classroom with laptops", caption: "Fictional Bronx classroom technology support." },
-      { src: "https://picsum.photos/seed/compudopt-ny-2/600/400", alt: "Students using devices", caption: "Sample Buffalo after-school digital tutoring." },
-      { src: "https://picsum.photos/seed/compudopt-ny-3/600/400", alt: "Family engagement event", caption: "Mock citywide parent digital access event." }
-    ]
-  },
-  AZ: {
-    name: "Arizona",
-    summary: "Arizona showcases how the platform could serve as a quick regional briefing for corporate and philanthropic partners.",
-    metrics: [
-      { label: "Students reached", value: "1,260" },
-      { label: "Computers placed", value: "990" },
-      { label: "Schools supported", value: "3" },
-      { label: "Training sessions", value: "21" }
-    ],
-    cities: ["Phoenix", "Tucson"],
-    schools: [
-      { name: "Desert Bloom Elementary", city: "Phoenix", students: 340, computers: 255, impact: "The fictional program snapshot highlights fewer device-sharing bottlenecks at home." },
-      { name: "Catalina Rising School", city: "Tucson", students: 260, computers: 205, impact: "A made-up digital skills series helped students practice research and presentation tools." }
-    ],
-    photos: [
-      { src: "https://picsum.photos/seed/compudopt-az-1/600/400", alt: "Students in classroom", caption: "Sample Phoenix device access initiative." },
-      { src: "https://picsum.photos/seed/compudopt-az-2/600/400", alt: "Community digital training", caption: "Mock Tucson digital literacy workshop." }
-    ]
-  },
-  CO: {
-    name: "Colorado",
-    summary: "Colorado offers a lighter-scale example showing that the platform works for both large and emerging footprints.",
-    metrics: [
-      { label: "Students reached", value: "1,090" },
-      { label: "Computers placed", value: "840" },
-      { label: "Schools supported", value: "3" },
-      { label: "Training sessions", value: "18" }
-    ],
-    cities: ["Denver", "Colorado Springs"],
-    schools: [
-      { name: "Mile High Discovery", city: "Denver", students: 290, computers: 220, impact: "The demo frame focuses on access to digital project work and cloud-based collaboration." },
-      { name: "Pikes Peak Scholars", city: "Colorado Springs", students: 240, computers: 185, impact: "In this fictional scenario, student families reported more confidence using school portals." }
-    ],
-    photos: [
-      { src: "https://picsum.photos/seed/compudopt-co-1/600/400", alt: "Students using tablets", caption: "Sample Denver digital learning lab." },
-      { src: "https://picsum.photos/seed/compudopt-co-2/600/400", alt: "School tech program", caption: "Mock Colorado Springs student tech initiative." }
-    ]
-  },
-  WA: {
-    name: "Washington",
-    summary: "Washington helps the concept feel truly national and gives the map a visible West Coast anchor.",
-    metrics: [
-      { label: "Students reached", value: "980" },
-      { label: "Computers placed", value: "760" },
-      { label: "Schools supported", value: "2" },
-      { label: "Training sessions", value: "17" }
-    ],
-    cities: ["Seattle", "Tacoma"],
-    schools: [
-      { name: "Rainier View School", city: "Seattle", students: 250, computers: 190, impact: "The fictional impact note emphasizes better participation in remote enrichment work." },
-      { name: "South Sound Learning Lab", city: "Tacoma", students: 210, computers: 165, impact: "This school story demonstrates how donated devices could support STEM club retention." }
-    ],
-    photos: [
-      { src: "https://picsum.photos/seed/compudopt-wa-1/600/400", alt: "Students with laptops", caption: "Fictional Seattle classroom technology scene." },
-      { src: "https://picsum.photos/seed/compudopt-wa-2/600/400", alt: "Computer workshop", caption: "Sample Tacoma enrichment technology lab." }
-    ]
-  },
-  OH: {
-    name: "Ohio",
-    summary: "Ohio supports a balanced map and shows how the same storytelling system can work in new partner regions.",
-    metrics: [
-      { label: "Students reached", value: "1,130" },
-      { label: "Computers placed", value: "880" },
-      { label: "Schools supported", value: "3" },
-      { label: "Training sessions", value: "24" }
-    ],
-    cities: ["Columbus", "Cleveland"],
-    schools: [
-      { name: "Buckeye STEAM Academy", city: "Columbus", students: 300, computers: 230, impact: "The sample narrative points to more consistent use of online tutoring and intervention tools." },
-      { name: "Lakeshore Community School", city: "Cleveland", students: 260, computers: 205, impact: "Teachers in the fictional example reported stronger participation in digital writing assignments." }
-    ],
-    photos: [
-      { src: "https://picsum.photos/seed/compudopt-oh-1/600/400", alt: "Students in STEM class", caption: "Sample Columbus STEAM classroom photo." },
-      { src: "https://picsum.photos/seed/compudopt-oh-2/600/400", alt: "Students in tutoring lab", caption: "Mock Cleveland digital tutoring program." }
-    ]
-  },
-  PA: {
-    name: "Pennsylvania",
-    summary: "Pennsylvania adds another Northeast proof point and reinforces the donor-facing scalability of the concept.",
-    metrics: [
-      { label: "Students reached", value: "1,610" },
-      { label: "Computers placed", value: "1,220" },
-      { label: "Schools supported", value: "4" },
-      { label: "Training sessions", value: "30" }
-    ],
-    cities: ["Philadelphia", "Pittsburgh"],
-    schools: [
-      { name: "Liberty Bell Middle", city: "Philadelphia", students: 410, computers: 320, impact: "The fictional impact snapshot highlights improved online test readiness." },
-      { name: "Three Rivers Academy", city: "Pittsburgh", students: 285, computers: 215, impact: "This sample school story ties device access to stronger participation in technology electives." }
-    ],
-    photos: [
-      { src: "https://picsum.photos/seed/compudopt-pa-1/600/400", alt: "Students in school lab", caption: "Fictional Philadelphia classroom technology rollout." },
-      { src: "https://picsum.photos/seed/compudopt-pa-2/600/400", alt: "Students in workshop", caption: "Sample Pittsburgh technology elective program." }
-    ]
-  }
+const texasData = {
+  summary: "Texas is the featured state in this demo. Hover or click the state to zoom in, then click a city flag to view fictional school-level distributions.",
+  metrics: [
+    { label: "Students reached", value: "5,800" },
+    { label: "Computers placed", value: "4,650" },
+    { label: "Cities featured", value: "4" },
+    { label: "Schools supported", value: "14" }
+  ],
+  cities: [
+    {
+      key: "el-paso",
+      name: "El Paso",
+      coordinates: [-106.4850, 31.7619],
+      schoolCount: 3,
+      summary: "El Paso highlights a border-region expansion story with device access and family support.",
+      schools: [
+        { name: "Rio Vista Academy", students: 420, computers: 310, impact: "Homework completion rose in the fictional case study after home device access improved." },
+        { name: "Franklin Tech Middle", students: 360, computers: 280, impact: "Digital project participation increased across eighth grade classrooms." },
+        { name: "Desert Trails Prep", students: 290, computers: 215, impact: "Teachers reported better student consistency on online assignments." }
+      ]
+    },
+    {
+      key: "dallas",
+      name: "Dallas",
+      coordinates: [-96.7970, 32.7767],
+      schoolCount: 4,
+      summary: "Dallas demonstrates how a metro hub can distribute technology across multiple campuses.",
+      schools: [
+        { name: "East Dallas College Prep", students: 690, computers: 540, impact: "A fictional digital literacy lab helped ninth graders complete more online coursework independently." },
+        { name: "Red River STEM Academy", students: 510, computers: 395, impact: "The demo case links device access to stronger attendance in blended-learning periods." },
+        { name: "Oak Cliff Future Leaders", students: 430, computers: 330, impact: "Families in the mock program had more reliable access to school platforms." },
+        { name: "North Dallas Pathways", students: 320, computers: 250, impact: "Students showed improved submission rates on digital homework." }
+      ]
+    },
+    {
+      key: "houston",
+      name: "Houston",
+      coordinates: [-95.3698, 29.7604],
+      schoolCount: 5,
+      summary: "Houston is framed as Compudopt's flagship city in this proposal, with broad school and family engagement.",
+      schools: [
+        { name: "Northline STEM Academy", students: 820, computers: 620, impact: "Teachers reported stronger homework completion after students received take-home devices." },
+        { name: "Gulfton Digital Prep", students: 540, computers: 420, impact: "The sample narrative highlights better participation in online tutoring." },
+        { name: "Third Ward Innovation School", students: 470, computers: 360, impact: "Students used devices to complete collaborative projects more consistently." },
+        { name: "Aldine Futures Campus", students: 390, computers: 300, impact: "Families in the demo had increased engagement during technology workshops." },
+        { name: "East End Learning Hub", students: 310, computers: 240, impact: "School staff described stronger confidence using digital learning platforms." }
+      ]
+    },
+    {
+      key: "san-antonio",
+      name: "San Antonio",
+      coordinates: [-98.4936, 29.4241],
+      schoolCount: 2,
+      summary: "San Antonio shows how a smaller cluster can still deliver visible school-level outcomes.",
+      schools: [
+        { name: "Mission Verde Intermediate", students: 560, computers: 410, impact: "Device distribution paired with family tech nights raised parent engagement in the demo scenario." },
+        { name: "River City Scholars", students: 380, computers: 290, impact: "The fictional case ties device access to improved class participation and research skills." }
+      ]
+    }
+  ]
 };
 
 const stateName = document.querySelector("#state-name");
@@ -296,99 +69,76 @@ const cityList = document.querySelector("#city-list");
 const cityCount = document.querySelector("#city-count");
 const schoolList = document.querySelector("#school-list");
 const schoolCount = document.querySelector("#school-count");
-const photoGrid = document.querySelector("#photo-grid");
-const photoCount = document.querySelector("#photo-count");
-const totalStates = document.querySelector("#total-states");
-const totalComputers = document.querySelector("#total-computers");
-const totalStudents = document.querySelector("#total-students");
 
 function formatNumber(value) {
   return new Intl.NumberFormat("en-US").format(value);
 }
 
-function aggregateTotals() {
-  const codes = Object.keys(stateDetails);
-  let computers = 0;
-  let students = 0;
-
-  codes.forEach((code) => {
-    const c = stateDetails[code].metrics.find((m) => m.label === "Computers placed");
-    const s = stateDetails[code].metrics.find((m) => m.label === "Students reached");
-    computers += Number(c.value.replace(/,/g, ""));
-    students += Number(s.value.replace(/,/g, ""));
-  });
-
-  totalStates.textContent = formatNumber(codes.length);
-  totalComputers.textContent = formatNumber(computers);
-  totalStudents.textContent = formatNumber(students);
-}
-
-function renderState(code) {
-  const meta = Object.values(fipsToState).find((entry) => entry.code === code);
-  const details = stateDetails[code];
-
-  document.querySelectorAll(".state").forEach((node) => {
-    node.classList.toggle("is-selected", node.dataset.code === code);
-  });
-
-  if (!details) {
-    stateName.textContent = meta ? meta.name : code;
-    stateSummary.textContent = "No fictional pilot data is shown here yet. In a real rollout, this panel could highlight future growth opportunities in this state.";
-    detailMetrics.innerHTML = `
-      <div class="detail-metric"><strong>Future</strong><span>Expansion market</span></div>
-      <div class="detail-metric"><strong>0</strong><span>Sample schools loaded</span></div>
-    `;
-    cityCount.textContent = "0 cities";
-    cityList.innerHTML = `<span class="chip">No demo city data yet</span>`;
-    schoolCount.textContent = "0 schools";
-    schoolList.innerHTML = `
-      <article class="school-card">
-        <h4>Potential next step</h4>
-        <p>This state could display future school partners, device counts, and local impact stories once real program data is available.</p>
-      </article>
-    `;
-    photoCount.textContent = "1 photo";
-    photoGrid.innerHTML = `
-      <article class="photo-card">
-        <img src="https://picsum.photos/seed/future-state-photo/600/400" alt="Placeholder future community photo">
-        <p>Future photo gallery for this state.</p>
-      </article>
-    `;
-    return;
-  }
-
-  stateName.textContent = details.name;
-  stateSummary.textContent = details.summary;
-
-  detailMetrics.innerHTML = details.metrics.map((metric) => `
+function renderTexasOverview() {
+  stateName.textContent = "Texas";
+  stateSummary.textContent = texasData.summary;
+  detailMetrics.innerHTML = texasData.metrics.map((metric) => `
     <div class="detail-metric">
       <strong>${metric.value}</strong>
       <span>${metric.label}</span>
     </div>
   `).join("");
 
-  cityCount.textContent = `${details.cities.length} cities`;
-  cityList.innerHTML = details.cities.map((city) => `<span class="chip">${city}</span>`).join("");
+  cityCount.textContent = `${texasData.cities.length} cities`;
+  cityList.innerHTML = texasData.cities.map((city) => `<span class="chip">${city.name}</span>`).join("");
 
-  schoolCount.textContent = `${details.schools.length} schools`;
-  schoolList.innerHTML = details.schools.map((school) => `
+  schoolCount.textContent = "Select a city";
+  schoolList.innerHTML = `
+    <article class="school-card">
+      <h4>Choose a city flag</h4>
+      <p>Click a Texas city flag on the map to load fictional school-level impact distributions for that metro area.</p>
+    </article>
+  `;
+}
+
+function renderCity(cityKey) {
+  const city = texasData.cities.find((item) => item.key === cityKey);
+  if (!city) return;
+
+  stateName.textContent = `${city.name}, Texas`;
+  stateSummary.textContent = city.summary;
+
+  const students = city.schools.reduce((sum, school) => sum + school.students, 0);
+  const computers = city.schools.reduce((sum, school) => sum + school.computers, 0);
+
+  detailMetrics.innerHTML = `
+    <div class="detail-metric">
+      <strong>${city.schoolCount}</strong>
+      <span>Schools impacted</span>
+    </div>
+    <div class="detail-metric">
+      <strong>${formatNumber(students)}</strong>
+      <span>Students reached</span>
+    </div>
+    <div class="detail-metric">
+      <strong>${formatNumber(computers)}</strong>
+      <span>Computers placed</span>
+    </div>
+    <div class="detail-metric">
+      <strong>${city.name}</strong>
+      <span>Featured city</span>
+    </div>
+  `;
+
+  cityCount.textContent = `${texasData.cities.length} cities`;
+  cityList.innerHTML = texasData.cities.map((item) => `
+    <span class="chip">${item.name} (${item.schoolCount})</span>
+  `).join("");
+
+  schoolCount.textContent = `${city.schools.length} schools`;
+  schoolList.innerHTML = city.schools.map((school) => `
     <article class="school-card">
       <h4>${school.name}</h4>
       <div class="school-meta">
-        <span class="school-pill">${school.city}</span>
         <span class="school-pill">${formatNumber(school.students)} students</span>
         <span class="school-pill">${formatNumber(school.computers)} computers</span>
       </div>
       <p>${school.impact}</p>
-    </article>
-  `).join("");
-
-  const photos = details.photos || [];
-  photoCount.textContent = `${photos.length} ${photos.length === 1 ? "photo" : "photos"}`;
-  photoGrid.innerHTML = photos.map((photo) => `
-    <article class="photo-card">
-      <img src="${photo.src}" alt="${photo.alt}">
-      <p>${photo.caption}</p>
     </article>
   `).join("");
 }
@@ -418,42 +168,97 @@ async function drawMap() {
   const projection = d3.geoAlbersUsa().fitSize([width, height], nation);
   const path = d3.geoPath(projection);
 
-  svg.append("g")
-    .selectAll("path")
+  const g = svg.append("g");
+  const markerLayer = svg.append("g").attr("class", "marker-layer");
+
+  let texasActive = false;
+
+  const stateSelection = g.selectAll("path")
     .data(states)
     .join("path")
     .attr("class", (d) => {
-      const code = fipsToState[String(d.id).padStart(2, "0")]?.code;
-      return `state ${stateDetails[code] ? "state-active" : "state-inactive"}`;
+      const isTexas = String(d.id).padStart(2, "0") === TEXAS_FIPS;
+      return `state ${isTexas ? "state-texas" : "state-other"}`;
     })
-    .attr("data-code", (d) => fipsToState[String(d.id).padStart(2, "0")]?.code || "")
-    .attr("d", path)
+    .attr("data-code", (d) => String(d.id).padStart(2, "0") === TEXAS_FIPS ? "TX" : "")
+    .attr("d", path);
+
+  const texasFeature = states.find((d) => String(d.id).padStart(2, "0") === TEXAS_FIPS);
+  const texasBounds = path.bounds(texasFeature);
+  const texasDx = texasBounds[1][0] - texasBounds[0][0];
+  const texasDy = texasBounds[1][1] - texasBounds[0][1];
+  const texasX = (texasBounds[0][0] + texasBounds[1][0]) / 2;
+  const texasY = (texasBounds[0][1] + texasBounds[1][1]) / 2;
+  const scale = Math.min(3, 0.72 / Math.max(texasDx / width, texasDy / height));
+  const translate = [width / 2 - scale * texasX, height / 2 - scale * texasY];
+
+  function setTexasZoom(active) {
+    texasActive = active;
+
+    g.transition()
+      .duration(500)
+      .attr("transform", active ? `translate(${translate[0]},${translate[1]}) scale(${scale})` : "translate(0,0) scale(1)");
+
+    markerLayer.selectAll(".city-marker")
+      .classed("is-visible", active);
+
+    renderTexasOverview();
+  }
+
+  stateSelection
     .on("mouseenter", (event, d) => {
-      const code = fipsToState[String(d.id).padStart(2, "0")]?.code;
-      if (code) renderState(code);
+      const isTexas = String(d.id).padStart(2, "0") === TEXAS_FIPS;
+      if (isTexas) {
+        setTexasZoom(true);
+      }
     })
     .on("click", (event, d) => {
-      const code = fipsToState[String(d.id).padStart(2, "0")]?.code;
-      if (code) renderState(code);
+      const isTexas = String(d.id).padStart(2, "0") === TEXAS_FIPS;
+      setTexasZoom(isTexas);
     });
 
-  const activeStates = states.filter((d) => {
-    const code = fipsToState[String(d.id).padStart(2, "0")]?.code;
-    return Boolean(stateDetails[code]);
-  });
-
-  svg.append("g")
-    .selectAll("text")
-    .data(activeStates)
-    .join("text")
-    .attr("class", "state-label active")
+  const markers = markerLayer.selectAll(".city-marker")
+    .data(texasData.cities)
+    .join("g")
+    .attr("class", "city-marker")
     .attr("transform", (d) => {
-      const [x, y] = path.centroid(d);
+      const [x, y] = projection(d.coordinates);
       return `translate(${x},${y})`;
     })
-    .attr("dy", "0.35em")
-    .text((d) => fipsToState[String(d.id).padStart(2, "0")]?.code || "");
+    .on("click", (event, d) => {
+      event.stopPropagation();
+      renderCity(d.key);
+    });
+
+  markers.append("line")
+    .attr("class", "flag-pole")
+    .attr("x1", 0)
+    .attr("y1", 0)
+    .attr("x2", 0)
+    .attr("y2", -42);
+
+  markers.append("rect")
+    .attr("class", "flag-body")
+    .attr("x", 0)
+    .attr("y", -42)
+    .attr("rx", 8)
+    .attr("ry", 8)
+    .attr("width", 34)
+    .attr("height", 24);
+
+  markers.append("text")
+    .attr("class", "flag-count")
+    .attr("x", 17)
+    .attr("y", -30)
+    .text((d) => d.schoolCount);
+
+  markers.append("text")
+    .attr("class", "flag-label")
+    .attr("x", 17)
+    .attr("y", -52)
+    .text((d) => d.name);
+
+  renderTexasOverview();
 }
 
-aggregateTotals();
-drawMap().then(() => renderState("TX"));
+drawMap();
