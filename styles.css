@@ -132,12 +132,13 @@ h4 {
 }
 
 h1 {
-  font-size: clamp(2.8rem, 6vw, 5.4rem);
+  font-size: clamp(2.8rem, 6vw, 5.2rem);
   max-width: 11ch;
 }
 
 h2 {
-  font-size: clamp(2rem, 4vw, 3.3rem);
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  max-width: 16ch;
 }
 
 h3 {
@@ -238,7 +239,7 @@ li {
 }
 
 .map-layout {
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1.15fr 0.85fr;
   align-items: start;
 }
 
@@ -283,7 +284,7 @@ li {
   border-radius: 26px;
   background:
     radial-gradient(circle at top left, rgba(142, 195, 65, 0.08), transparent 30%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(240, 248, 255, 0.82));
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(240, 248, 255, 0.86));
   border: 1px solid rgba(23, 50, 77, 0.08);
   padding: 16px;
   overflow: hidden;
@@ -297,36 +298,70 @@ li {
 
 .state {
   stroke: #ffffff;
-  stroke-width: 1.2;
-  transition: fill 160ms ease, transform 160ms ease, opacity 160ms ease;
+  stroke-width: 1.1;
+  transition: fill 160ms ease, transform 160ms ease;
   cursor: pointer;
 }
 
 .state:hover,
 .state.is-selected {
   stroke: #0d3357;
-  stroke-width: 2.2;
+  stroke-width: 2;
 }
 
-.state-active {
+.state-texas {
   fill: url(#stateGradient);
 }
 
-.state-inactive {
+.state-other {
   fill: #dfe6ee;
 }
 
-.state-label {
+.city-marker {
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.city-marker.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.flag-pole {
+  stroke: #17324d;
+  stroke-width: 3;
+}
+
+.flag-body {
+  fill: #17324d;
+}
+
+.flag-count {
+  fill: #ffffff;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+.flag-label {
+  fill: #17324d;
   font-family: "Space Grotesk", sans-serif;
   font-size: 12px;
   font-weight: 700;
   text-anchor: middle;
-  pointer-events: none;
-  fill: #17324d;
 }
 
-.state-label.active {
-  fill: #ffffff;
+.map-help {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(29, 118, 187, 0.06);
+  border: 1px solid rgba(29, 118, 187, 0.08);
+  color: var(--ink);
 }
 
 .detail-summary {
@@ -406,34 +441,6 @@ li {
   margin: 0;
 }
 
-.photo-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-  margin-top: 14px;
-}
-
-.photo-card {
-  overflow: hidden;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.76);
-  border: 1px solid rgba(23, 50, 77, 0.08);
-}
-
-.photo-card img {
-  display: block;
-  width: 100%;
-  height: 140px;
-  object-fit: cover;
-}
-
-.photo-card p {
-  margin: 0;
-  padding: 10px 12px 12px;
-  font-size: 0.88rem;
-  color: var(--muted);
-}
-
 .footer {
   margin-top: 48px;
   padding: 24px 0 12px;
@@ -472,8 +479,7 @@ li {
   }
 
   .hero-metrics,
-  .detail-metrics,
-  .photo-grid {
+  .detail-metrics {
     grid-template-columns: 1fr;
   }
 }
