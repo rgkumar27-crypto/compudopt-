@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Compudopt Impact Map Demo</title>
-  <meta name="description" content="A Compudopt-inspired concept site that visualizes fictional nationwide impact data by state, city, school, and photo story.">
+  <title>Compudopt Texas Impact Demo</title>
+  <meta name="description" content="Compudopt proposal demo focused on Texas city and school impact storytelling.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -16,12 +16,12 @@
       <nav class="topbar">
         <a class="brand" href="#top">
           <span class="brand-mark">C</span>
-          <span>Compudopt Impact Map</span>
+          <span>Compudopt Texas Impact Map</span>
         </a>
 
         <div class="nav-links">
           <a href="#map">Map</a>
-          <a href="#impact">Impact</a>
+          <a href="#detail-panel">School Stats</a>
           <a href="#footer">Notes</a>
         </div>
       </nav>
@@ -29,42 +29,42 @@
       <section class="hero-grid">
         <div class="hero-copy">
           <p class="eyebrow">Case competition concept</p>
-          <h1>A national impact map that makes Compudopt's local work feel visible, human, and scalable.</h1>
+          <h1>A Texas-first impact map that turns Compudopt's work into a visual story.</h1>
           <p class="lede">
-            This proposal imagines a donor-friendly web experience where visitors hover over a state, see the cities and schools Compudopt has supported, and instantly understand the story behind the numbers. All data and photos shown here are fictional placeholders for presentation use only.
+            Hover over Texas to zoom in, reveal major cities, and click city flags to see fictional school-level impact data. This is a presentation demo, so all school names, counts, and outcomes are placeholders.
           </p>
 
           <div class="hero-actions">
-            <a class="button button-primary" href="#map">Explore the demo</a>
+            <a class="button button-primary" href="#map">Open the map</a>
             <a class="button button-secondary" href="https://www.compudopt.org/" target="_blank" rel="noreferrer">View Compudopt</a>
           </div>
 
           <div class="hero-metrics">
             <article class="metric-card">
-              <span class="metric-value" id="total-states">12</span>
-              <span class="metric-label">Sample states visualized</span>
+              <span class="metric-value">4</span>
+              <span class="metric-label">Texas cities highlighted</span>
             </article>
             <article class="metric-card">
-              <span class="metric-value" id="total-computers">19,550</span>
-              <span class="metric-label">Demo computers distributed</span>
+              <span class="metric-value">14</span>
+              <span class="metric-label">Fictional schools represented</span>
             </article>
             <article class="metric-card">
-              <span class="metric-value" id="total-students">24,400</span>
+              <span class="metric-value">5,800</span>
               <span class="metric-label">Demo students reached</span>
             </article>
           </div>
         </div>
 
         <aside class="hero-panel">
-          <p class="panel-label">Why this concept works</p>
+          <p class="panel-label">Why this version works</p>
           <ul class="story-list">
-            <li>Shows a real national footprint instantly.</li>
-            <li>Pairs geography with school-level storytelling.</li>
-            <li>Adds photo-driven emotional context for donors and judges.</li>
-            <li>Can later connect to real operational data.</li>
+            <li>Starts with one strong state instead of an overloaded national demo.</li>
+            <li>Shows how a donor can move from state view to city view to school view.</li>
+            <li>Makes impact feel more concrete with city checkpoints and school breakdowns.</li>
+            <li>Can later expand to other states using the same interaction model.</li>
           </ul>
           <div class="panel-band">
-            <strong>Suggested pitch:</strong> "Compudopt is already changing outcomes across communities. This map helps people see that impact, state by state."
+            <strong>Suggested pitch:</strong> "This map lets judges see Compudopt's footprint at three levels: state, city, and school."
           </div>
         </aside>
       </section>
@@ -74,9 +74,9 @@
       <section class="section map-section" id="map">
         <div class="section-heading">
           <p class="eyebrow">Interactive map</p>
-          <h2>Hover over a state to reveal the local story</h2>
+          <h2>Hover over Texas to zoom in, then click a city flag</h2>
           <p>
-            Active sample states are highlighted in a Compudopt-inspired green-to-blue gradient. Hover or click any state to update the detail panel, including fictional community photos.
+            Texas is the featured example. Once the state is active, city flags appear with the number of schools served in that city.
           </p>
         </div>
 
@@ -85,10 +85,10 @@
             <div class="map-card-header">
               <div>
                 <p class="mini-label">United States footprint</p>
-                <h3>Programs by state</h3>
+                <h3>Texas zoom demo</h3>
               </div>
               <div class="legend">
-                <span><i class="legend-dot legend-dot-active"></i> sample impact</span>
+                <span><i class="legend-dot legend-dot-active"></i> active story state</span>
                 <span><i class="legend-dot legend-dot-idle"></i> future territory</span>
               </div>
             </div>
@@ -96,58 +96,44 @@
             <div class="usa-map-wrap">
               <svg id="usa-map" class="usa-map" viewBox="0 0 975 610" aria-label="Interactive United States map"></svg>
             </div>
+
+            <div class="map-help">
+              <strong>How to use:</strong> Hover or click Texas, then choose a city flag to load fictional school impact details.
+            </div>
           </div>
 
-          <aside class="detail-panel" aria-live="polite">
-            <p class="mini-label">State snapshot</p>
+          <aside class="detail-panel" id="detail-panel" aria-live="polite">
+            <p class="mini-label">City and school detail</p>
             <h3 id="state-name">Texas</h3>
             <p class="detail-summary" id="state-summary">
-              Fictional pilot data for major metro partnerships, school distributions, and student reach.
+              Hover over Texas to activate the city flags. Click a flag to show fictional school-level distributions.
             </p>
 
             <div class="detail-metrics" id="detail-metrics"></div>
 
             <section class="detail-block">
               <div class="detail-block-heading">
-                <h4>Cities served</h4>
-                <span id="city-count">0 cities</span>
+                <h4>Available cities</h4>
+                <span id="city-count">4 cities</span>
               </div>
               <div class="chip-row" id="city-list"></div>
             </section>
 
             <section class="detail-block">
               <div class="detail-block-heading">
-                <h4>School partners</h4>
+                <h4>School distributions</h4>
                 <span id="school-count">0 schools</span>
               </div>
               <div class="school-list" id="school-list"></div>
             </section>
-
-            <section class="detail-block">
-              <div class="detail-block-heading">
-                <h4>Community photos</h4>
-                <span id="photo-count">0 photos</span>
-              </div>
-              <div class="photo-grid" id="photo-grid"></div>
-            </section>
           </aside>
-        </div>
-      </section>
-
-      <section class="section" id="impact">
-        <div class="section-heading">
-          <p class="eyebrow">Impact framing</p>
-          <h2>What judges should be able to learn in seconds</h2>
-          <p>
-            A real U.S. map feels more intuitive than a tile grid while still supporting quick storytelling: where Compudopt works, who it reaches, and how schools are impacted.
-          </p>
         </div>
       </section>
     </main>
 
     <footer class="footer" id="footer">
       <p>Demo created as a proposal concept inspired by the visual language of <a href="https://www.compudopt.org/" target="_blank" rel="noreferrer">compudopt.org</a>.</p>
-      <p>All state, city, school, impact, and photo content in this website are fictional sample data for judging purposes only.</p>
+      <p>All city, school, and impact figures in this website are fictional sample data for judging purposes only.</p>
     </footer>
   </div>
 
