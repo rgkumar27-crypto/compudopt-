@@ -1,55 +1,55 @@
-const stateShapes = [
-  { code: "WA", points: "84,83 143,83 144,118 132,138 97,138 84,122", labelX: 114, labelY: 111, name: "Washington" },
-  { code: "OR", points: "87,142 145,142 144,199 103,199 88,179", labelX: 118, labelY: 171, name: "Oregon" },
-  { code: "CA", points: "89,204 143,204 158,282 145,338 120,360 103,340 114,316 96,292", labelX: 123, labelY: 280, name: "California" },
-  { code: "ID", points: "150,107 192,107 199,199 161,199 146,173 153,139", labelX: 172, labelY: 154, name: "Idaho" },
-  { code: "NV", points: "147,205 191,205 205,297 167,306", labelX: 173, labelY: 254, name: "Nevada" },
-  { code: "MT", points: "201,87 294,87 294,147 203,147", labelX: 248, labelY: 117, name: "Montana" },
-  { code: "WY", points: "207,155 286,155 286,211 207,211", labelX: 247, labelY: 183, name: "Wyoming" },
-  { code: "UT", points: "197,219 250,219 250,296 208,296", labelX: 224, labelY: 258, name: "Utah" },
-  { code: "AZ", points: "196,303 252,303 249,370 213,392 190,371", labelX: 223, labelY: 348, name: "Arizona" },
-  { code: "CO", points: "258,221 333,221 333,296 258,296", labelX: 296, labelY: 258, name: "Colorado" },
-  { code: "NM", points: "258,303 333,303 333,381 258,381", labelX: 296, labelY: 343, name: "New Mexico" },
-  { code: "ND", points: "305,90 381,90 381,143 305,143", labelX: 343, labelY: 117, name: "North Dakota" },
-  { code: "SD", points: "304,149 382,149 382,210 304,210", labelX: 343, labelY: 180, name: "South Dakota" },
-  { code: "NE", points: "304,217 391,217 391,265 304,265", labelX: 347, labelY: 241, name: "Nebraska" },
-  { code: "KS", points: "304,271 391,271 391,317 304,317", labelX: 347, labelY: 294, name: "Kansas" },
-  { code: "OK", points: "302,324 405,324 405,365 360,365 349,382 303,382", labelX: 352, labelY: 349, name: "Oklahoma" },
-  { code: "TX", points: "303,389 405,389 424,430 454,448 438,491 389,502 359,466 322,458 303,425", labelX: 380, labelY: 443, name: "Texas" },
-  { code: "MN", points: "390,88 447,88 465,112 454,146 404,146 390,127", labelX: 426, labelY: 117, name: "Minnesota" },
-  { code: "IA", points: "394,218 451,218 459,252 401,252 394,238", labelX: 425, labelY: 236, name: "Iowa" },
-  { code: "MO", points: "398,258 455,258 469,318 430,341 402,316", labelX: 431, labelY: 295, name: "Missouri" },
-  { code: "AR", points: "403,325 452,325 458,381 411,381", labelX: 430, labelY: 353, name: "Arkansas" },
-  { code: "LA", points: "408,388 453,388 466,445 442,470 416,447 421,415", labelX: 438, labelY: 426, name: "Louisiana" },
-  { code: "WI", points: "456,89 500,89 512,120 498,161 463,161 455,136", labelX: 483, labelY: 124, name: "Wisconsin" },
-  { code: "IL", points: "469,169 505,169 512,251 489,279 471,260", labelX: 490, labelY: 223, name: "Illinois" },
-  { code: "MS", points: "464,388 503,388 505,460 475,460 464,430", labelX: 485, labelY: 424, name: "Mississippi" },
-  { code: "MI", points: "520,115 577,115 597,152 576,188 537,179 520,145", labelX: 558, labelY: 151, name: "Michigan" },
-  { code: "IN", points: "513,171 548,171 550,251 517,251", labelX: 531, labelY: 211, name: "Indiana" },
-  { code: "KY", points: "525,259 603,259 624,282 610,299 548,299 526,285", labelX: 575, labelY: 280, name: "Kentucky" },
-  { code: "TN", points: "520,309 609,309 593,332 522,332", labelX: 560, labelY: 320, name: "Tennessee" },
-  { code: "AL", points: "510,389 547,389 551,459 520,459", labelX: 531, labelY: 424, name: "Alabama" },
-  { code: "GA", points: "554,388 604,388 622,441 597,468 555,442", labelX: 585, labelY: 425, name: "Georgia" },
-  { code: "FL", points: "610,446 656,446 681,485 654,552 622,535 632,489", labelX: 648, labelY: 496, name: "Florida" },
-  { code: "OH", points: "557,171 602,171 605,248 563,248", labelX: 581, labelY: 210, name: "Ohio" },
-  { code: "WV", points: "607,222 641,222 649,271 624,284 604,257", labelX: 625, labelY: 251, name: "West Virginia" },
-  { code: "PA", points: "610,178 686,178 689,223 614,223", labelX: 650, labelY: 201, name: "Pennsylvania" },
-  { code: "VA", points: "649,259 736,259 703,298 648,289", labelX: 687, labelY: 278, name: "Virginia" },
-  { code: "NC", points: "646,306 733,306 759,325 737,347 653,343", labelX: 700, labelY: 326, name: "North Carolina" },
-  { code: "SC", points: "627,351 673,351 691,392 656,418 629,391", labelX: 658, labelY: 383, name: "South Carolina" },
-  { code: "NY", points: "691,135 758,135 773,169 743,197 693,184", labelX: 730, labelY: 163, name: "New York" },
-  { code: "NJ", points: "695,225 718,225 721,277 699,289", labelX: 708, labelY: 255, name: "New Jersey" },
-  { code: "MD", points: "690,247 731,247 733,274 690,274", labelX: 711, labelY: 260, name: "Maryland" },
-  { code: "DE", points: "725,226 741,226 743,273 728,273", labelX: 735, labelY: 250, name: "Delaware" },
-  { code: "VT", points: "760,108 780,108 780,150 760,150", labelX: 770, labelY: 129, name: "Vermont" },
-  { code: "NH", points: "784,103 806,103 805,155 784,155", labelX: 794, labelY: 128, name: "New Hampshire" },
-  { code: "ME", points: "808,82 858,82 846,156 805,156", labelX: 831, labelY: 118, name: "Maine" },
-  { code: "MA", points: "759,164 815,164 815,191 759,191", labelX: 787, labelY: 178, name: "Massachusetts" },
-  { code: "CT", points: "759,198 803,198 803,220 759,220", labelX: 781, labelY: 209, name: "Connecticut" },
-  { code: "RI", points: "807,196 821,196 821,220 807,220", labelX: 814, labelY: 208, name: "Rhode Island" },
-  { code: "AK", points: "48,467 117,467 118,510 79,510 61,494", labelX: 84, labelY: 490, name: "Alaska" },
-  { code: "HI", points: "145,528 189,528 197,557 160,557", labelX: 171, labelY: 543, name: "Hawaii" }
-];
+const fipsToState = {
+  "01": { code: "AL", name: "Alabama" },
+  "02": { code: "AK", name: "Alaska" },
+  "04": { code: "AZ", name: "Arizona" },
+  "05": { code: "AR", name: "Arkansas" },
+  "06": { code: "CA", name: "California" },
+  "08": { code: "CO", name: "Colorado" },
+  "09": { code: "CT", name: "Connecticut" },
+  "10": { code: "DE", name: "Delaware" },
+  "12": { code: "FL", name: "Florida" },
+  "13": { code: "GA", name: "Georgia" },
+  "15": { code: "HI", name: "Hawaii" },
+  "16": { code: "ID", name: "Idaho" },
+  "17": { code: "IL", name: "Illinois" },
+  "18": { code: "IN", name: "Indiana" },
+  "19": { code: "IA", name: "Iowa" },
+  "20": { code: "KS", name: "Kansas" },
+  "21": { code: "KY", name: "Kentucky" },
+  "22": { code: "LA", name: "Louisiana" },
+  "23": { code: "ME", name: "Maine" },
+  "24": { code: "MD", name: "Maryland" },
+  "25": { code: "MA", name: "Massachusetts" },
+  "26": { code: "MI", name: "Michigan" },
+  "27": { code: "MN", name: "Minnesota" },
+  "28": { code: "MS", name: "Mississippi" },
+  "29": { code: "MO", name: "Missouri" },
+  "30": { code: "MT", name: "Montana" },
+  "31": { code: "NE", name: "Nebraska" },
+  "32": { code: "NV", name: "Nevada" },
+  "33": { code: "NH", name: "New Hampshire" },
+  "34": { code: "NJ", name: "New Jersey" },
+  "35": { code: "NM", name: "New Mexico" },
+  "36": { code: "NY", name: "New York" },
+  "37": { code: "NC", name: "North Carolina" },
+  "38": { code: "ND", name: "North Dakota" },
+  "39": { code: "OH", name: "Ohio" },
+  "40": { code: "OK", name: "Oklahoma" },
+  "41": { code: "OR", name: "Oregon" },
+  "42": { code: "PA", name: "Pennsylvania" },
+  "44": { code: "RI", name: "Rhode Island" },
+  "45": { code: "SC", name: "South Carolina" },
+  "46": { code: "SD", name: "South Dakota" },
+  "47": { code: "TN", name: "Tennessee" },
+  "48": { code: "TX", name: "Texas" },
+  "49": { code: "UT", name: "Utah" },
+  "50": { code: "VT", name: "Vermont" },
+  "51": { code: "VA", name: "Virginia" },
+  "53": { code: "WA", name: "Washington" },
+  "54": { code: "WV", name: "West Virginia" },
+  "55": { code: "WI", name: "Wisconsin" },
+  "56": { code: "WY", name: "Wyoming" }
+};
 
 const stateDetails = {
   TX: {
@@ -236,7 +236,6 @@ const stateDetails = {
   }
 };
 
-const svg = document.querySelector("#usa-map");
 const stateName = document.querySelector("#state-name");
 const stateSummary = document.querySelector("#state-summary");
 const detailMetrics = document.querySelector("#detail-metrics");
@@ -248,34 +247,8 @@ const totalStates = document.querySelector("#total-states");
 const totalComputers = document.querySelector("#total-computers");
 const totalStudents = document.querySelector("#total-students");
 
-let selectedCode = "TX";
-
 function formatNumber(value) {
   return new Intl.NumberFormat("en-US").format(value);
-}
-
-function buildMap() {
-  stateShapes.forEach((state) => {
-    const polygon = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
-    polygon.setAttribute("points", state.points);
-    polygon.setAttribute("class", "state");
-    polygon.setAttribute("data-code", state.code);
-    polygon.setAttribute("data-active", String(Boolean(stateDetails[state.code])));
-    polygon.setAttribute("aria-label", state.name);
-
-    polygon.addEventListener("mouseenter", () => renderState(state.code));
-    polygon.addEventListener("click", () => renderState(state.code));
-
-    svg.appendChild(polygon);
-
-    const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
-    label.setAttribute("x", state.labelX);
-    label.setAttribute("y", state.labelY);
-    label.setAttribute("class", `state-label${stateDetails[state.code] ? " active" : ""}`);
-    label.textContent = state.code;
-
-    svg.appendChild(label);
-  });
 }
 
 function aggregateTotals() {
@@ -296,17 +269,16 @@ function aggregateTotals() {
 }
 
 function renderState(code) {
-  selectedCode = code;
+  const meta = Object.values(fipsToState).find((entry) => entry.code === code);
   const details = stateDetails[code];
-  const shape = stateShapes.find((state) => state.code === code);
 
-  document.querySelectorAll(".state").forEach((state) => {
-    state.classList.toggle("is-selected", state.dataset.code === code);
+  document.querySelectorAll(".state").forEach((node) => {
+    node.classList.toggle("is-selected", node.dataset.code === code);
   });
 
   if (!details) {
-    stateName.textContent = shape.name;
-    stateSummary.textContent = "No fictional pilot data is shown here yet. In a real rollout, this panel could invite expansion, donations, or partnership development in this state.";
+    stateName.textContent = meta ? meta.name : code;
+    stateSummary.textContent = "No fictional pilot data is shown here yet. In a real rollout, this panel could highlight future growth opportunities in this state.";
     detailMetrics.innerHTML = `
       <div class="detail-metric"><strong>Future</strong><span>Expansion market</span></div>
       <div class="detail-metric"><strong>0</strong><span>Sample schools loaded</span></div>
@@ -314,7 +286,12 @@ function renderState(code) {
     cityCount.textContent = "0 cities";
     cityList.innerHTML = `<span class="chip">No demo city data yet</span>`;
     schoolCount.textContent = "0 schools";
-    schoolList.innerHTML = `<article class="school-card"><h4>Potential next step</h4><p>This state could display future school partners, device counts, and local impact quotes once real data is available.</p></article>`;
+    schoolList.innerHTML = `
+      <article class="school-card">
+        <h4>Potential next step</h4>
+        <p>This state could display future school partners, device counts, and local impact stories once real program data is available.</p>
+      </article>
+    `;
     return;
   }
 
@@ -345,6 +322,71 @@ function renderState(code) {
   `).join("");
 }
 
-buildMap();
+async function drawMap() {
+  const svg = d3.select("#usa-map");
+  const width = 975;
+  const height = 610;
+
+  svg.selectAll("*").remove();
+
+  svg.append("defs")
+    .append("linearGradient")
+    .attr("id", "stateGradient")
+    .attr("x1", "0%")
+    .attr("y1", "0%")
+    .attr("x2", "100%")
+    .attr("y2", "100%")
+    .call((gradient) => {
+      gradient.append("stop").attr("offset", "0%").attr("stop-color", "#8ec341");
+      gradient.append("stop").attr("offset", "100%").attr("stop-color", "#1d76bb");
+    });
+
+  const us = await d3.json("https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json");
+  const states = topojson.feature(us, us.objects.states).features;
+  const nation = topojson.feature(us, us.objects.nation);
+
+  const projection = d3.geoAlbersUsa().fitSize([width, height], nation);
+  const path = d3.geoPath(projection);
+
+  svg.append("g")
+    .selectAll("path")
+    .data(states)
+    .join("path")
+    .attr("class", (d) => {
+      const code = fipsToState[d.id.padStart(2, "0")]?.code;
+      return `state ${stateDetails[code] ? "state-active" : "state-inactive"}`;
+    })
+    .attr("data-code", (d) => fipsToState[d.id.padStart(2, "0")]?.code || "")
+    .attr("d", path)
+    .on("mouseenter", function(event, d) {
+      const code = fipsToState[d.id.padStart(2, "0")]?.code;
+      if (code) {
+        renderState(code);
+      }
+    })
+    .on("click", function(event, d) {
+      const code = fipsToState[d.id.padStart(2, "0")]?.code;
+      if (code) {
+        renderState(code);
+      }
+    });
+
+  const activeStates = states.filter((d) => {
+    const code = fipsToState[d.id.padStart(2, "0")]?.code;
+    return Boolean(stateDetails[code]);
+  });
+
+  svg.append("g")
+    .selectAll("text")
+    .data(activeStates)
+    .join("text")
+    .attr("class", "state-label active")
+    .attr("transform", (d) => {
+      const [x, y] = path.centroid(d);
+      return `translate(${x},${y})`;
+    })
+    .text((d) => fipsToState[d.id.padStart(2, "0")]?.code || "");
+}
+
 aggregateTotals();
-renderState(selectedCode);
+drawMap().then(() => renderState("TX"));
