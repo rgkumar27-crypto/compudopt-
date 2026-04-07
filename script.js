@@ -77,6 +77,7 @@ function formatNumber(value) {
 function renderTexasOverview() {
   stateName.textContent = "Texas";
   stateSummary.textContent = texasData.summary;
+
   detailMetrics.innerHTML = texasData.metrics.map((metric) => `
     <div class="detail-metric">
       <strong>${metric.value}</strong>
@@ -168,13 +169,13 @@ async function drawMap() {
   const projection = d3.geoAlbersUsa().fitSize([width, height], nation);
   const path = d3.geoPath(projection);
 
-  const rootLayer = svg.append("g").attr("class", "root-layer");
-  const statesLayer = rootLayer.append("g").attr("class", "states-layer");
-  const markerLayer = rootLayer.append("g").attr("class", "marker-layer");
+  const zoomLayer = svg.append("g").attr("class", "zoom-layer");
+  const statesLayer = zoomLayer.append("g").attr("class", "states-layer");
+  const markerLayer = zoomLayer.append("g").attr("class", "marker-layer");
 
-  let texasActive = false;
+  const texasFeature = states.find((d) => String(d.id).padStart(2, "0") === TEXAS_FIPS);
 
-  const stateSelection = statesLayer.selectAll("path")
+  statesLayer.selectAll("path")
     .data(states)
     .join("path")
     .attr("class", (d) => {
@@ -184,50 +185,65 @@ async function drawMap() {
     .attr("data-code", (d) => String(d.id).padStart(2, "0") === TEXAS_FIPS ? "TX" : "")
     .attr("d", path);
 
-  const texasFeature = states.find((d) => String(d.id).padStart(2, "0") === TEXAS_FIPS);
+  const texasShape = statesLayer.select('[data-code="TX"]');
+
   const texasBounds = path.bounds(texasFeature);
-  const texasDx = texasBounds[1][0] - texasBounds[0][0];
-  const texasDy = texasBounds[1][1] - texasBounds[0][1];
-  const texasX = (texasBounds[0][0] + texasBounds[1][0]) / 2;
-  const texasY = (texasBounds[0][1] + texasBounds[1][1]) / 2;
+  const dx = texasBounds[1][0] - texasBounds[0][0];
+  const dy = texasBounds[1][1] - texasBounds[0][1];
+  const x = (texasBounds[0][0] + texasBounds[1][0]) / 2;
+  const y = (texasBounds[0][1] + texasBounds[1][1]) / 2;
 
-  const scale = Math.min(4.8, 1.15 / Math.max(texasDx / width, texasDy / height));
-  const translate = [width / 2 - scale * texasX, height / 2 - scale * texasY];
+  const scale = Math.min(7, 1.75 / Math.max(dx / width, dy / height));
+  const translateX = width / 2 - scale * x - 30;
+  const translateY = height / 2 - scale * y + 35;
 
-  function setTexasZoom(active) {
-    texasActive = active;
-
-    rootLayer.transition()
-      .duration(650)
-      .ease(d3.easeCubicOut)
-      .attr("transform", active ? `translate(${translate[0]},${translate[1]}) scale(${scale})` : "translate(0,0) scale(1)");
-
+  function showFlags(show) {
     markerLayer.selectAll(".city-marker")
-      .classed("is-visible", active);
-
-    renderTexasOverview();
+      .interrupt()
+      .transition()
+      .duration(250)
+      .style("opacity", show ? 1 : 0)
+      .style("pointer-events", show ? "auto" : "none");
   }
 
-  stateSelection
-    .on("mouseenter", (event, d) => {
-      const isTexas = String(d.id).padStart(2, "0") === TEXAS_FIPS;
-      if (isTexas) {
-        setTexasZoom(true);
-      }
-    })
-    .on("click", (event, d) => {
-      const isTexas = String(d.id).padStart(2, "0") === TEXAS_FIPS;
-      setTexasZoom(isTexas);
-    });
+  function zoomTexas() {
+    zoomLayer.interrupt()
+      .transition()
+      .duration(700)
+      .ease(d3.easeCubicOut)
+      .attr("transform", `translate(${translateX},${translateY}) scale(${scale})`);
+
+    showFlags(true);
+    renderTexasOverview();
+    texasShape.classed("is-selected", true);
+  }
+
+  function resetMap() {
+    zoomLayer.interrupt()
+      .transition()
+      .duration(500)
+      .ease(d3.easeCubicOut)
+      .attr("transform", "translate(0,0) scale(1)");
+
+    showFlags(false);
+    renderTexasOverview();
+    texasShape.classed("is-selected", false);
+  }
+
+  texasShape
+    .on("mouseenter", zoomTexas)
+    .on("click", zoomTexas);
 
   const markers = markerLayer.selectAll(".city-marker")
     .data(texasData.cities)
     .join("g")
     .attr("class", "city-marker")
     .attr("transform", (d) => {
-      const [x, y] = projection(d.coordinates);
-      return `translate(${x},${y})`;
+      const [mx, my] = projection(d.coordinates);
+      return `translate(${mx},${my})`;
     })
+    .style("opacity", 0)
+    .style("pointer-events", "none")
     .on("click", (event, d) => {
       event.stopPropagation();
       renderCity(d.key);
@@ -260,6 +276,8 @@ async function drawMap() {
     .attr("x", 17)
     .attr("y", -52)
     .text((d) => d.name);
+
+  svg.on("mouseleave", resetMap);
 
   renderTexasOverview();
 }
