@@ -193,9 +193,9 @@ async function drawMap() {
   const x = (texasBounds[0][0] + texasBounds[1][0]) / 2;
   const y = (texasBounds[0][1] + texasBounds[1][1]) / 2;
 
-  const scale = Math.min(7, 1.75 / Math.max(dx / width, dy / height));
-  const translateX = width / 2 - scale * x - 30;
-  const translateY = height / 2 - scale * y + 35;
+  const scale = Math.min(5.2, 1.18 / Math.max(dx / width, dy / height));
+  const translateX = width / 2 - scale * x - 8;
+  const translateY = height / 2 - scale * y + 18;
 
   function showFlags(show) {
     markerLayer.selectAll(".city-marker")
