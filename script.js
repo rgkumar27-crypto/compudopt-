@@ -66,6 +66,12 @@ const stateDetails = {
       { name: "Northline STEM Academy", city: "Houston", students: 820, computers: 620, impact: "Teachers reported stronger homework completion after students received take-home devices." },
       { name: "East Dallas College Prep", city: "Dallas", students: 690, computers: 540, impact: "A fictional digital literacy lab helped ninth graders complete more online coursework independently." },
       { name: "Mission Verde Intermediate", city: "San Antonio", students: 560, computers: 410, impact: "Device distribution paired with family tech nights raised parent engagement in the demo scenario." }
+    ],
+    photos: [
+      { src: "https://picsum.photos/seed/compudopt-texas-1/600/400", alt: "Students using laptops in class", caption: "Fictional Houston classroom technology rollout." },
+      { src: "https://picsum.photos/seed/compudopt-texas-2/600/400", alt: "Computer lab with students", caption: "Sample Dallas digital access lab." },
+      { src: "https://picsum.photos/seed/compudopt-texas-3/600/400", alt: "Family training event", caption: "Mock San Antonio family tech workshop." },
+      { src: "https://picsum.photos/seed/compudopt-texas-4/600/400", alt: "Students collaborating on devices", caption: "Placeholder statewide impact image." }
     ]
   },
   CA: {
@@ -82,6 +88,12 @@ const stateDetails = {
       { name: "Pacific Horizon Middle", city: "Los Angeles", students: 710, computers: 560, impact: "The sample story highlights improved project completion in blended learning classes." },
       { name: "Laney Bridge Academy", city: "Oakland", students: 510, computers: 430, impact: "School leaders in this fictional example saw more students using digital portfolios." },
       { name: "Harbor Point Charter", city: "San Diego", students: 470, computers: 355, impact: "The demo data frames device access as a bridge to after-school coding participation." }
+    ],
+    photos: [
+      { src: "https://picsum.photos/seed/compudopt-california-1/600/400", alt: "Students in modern classroom", caption: "Mock Los Angeles school technology day." },
+      { src: "https://picsum.photos/seed/compudopt-california-2/600/400", alt: "Laptop distribution event", caption: "Fictional Oakland community device handoff." },
+      { src: "https://picsum.photos/seed/compudopt-california-3/600/400", alt: "Students in media lab", caption: "Sample San Diego digital media lab." },
+      { src: "https://picsum.photos/seed/compudopt-california-4/600/400", alt: "Students collaborating", caption: "Placeholder statewide photo story." }
     ]
   },
   IL: {
@@ -97,6 +109,10 @@ const stateDetails = {
     schools: [
       { name: "South Loop Innovation School", city: "Chicago", students: 430, computers: 310, impact: "The fictional dashboard shows attendance gains during weeks with major digital assignments." },
       { name: "Fox Valley Learning Center", city: "Aurora", students: 360, computers: 280, impact: "Students in the demo scenario had more reliable access to college and career resources." }
+    ],
+    photos: [
+      { src: "https://picsum.photos/seed/compudopt-illinois-1/600/400", alt: "School laptop cart", caption: "Fictional Chicago classroom device access." },
+      { src: "https://picsum.photos/seed/compudopt-illinois-2/600/400", alt: "Students using computers", caption: "Sample Aurora digital learning session." }
     ]
   },
   FL: {
@@ -112,6 +128,10 @@ const stateDetails = {
     schools: [
       { name: "Little River Tech Academy", city: "Miami", students: 520, computers: 430, impact: "Sample family surveys indicate more students could complete homework from home." },
       { name: "Orange Grove Middle", city: "Orlando", students: 410, computers: 310, impact: "The proposal frames Compudopt as a partner in reducing device-sharing across households." }
+    ],
+    photos: [
+      { src: "https://picsum.photos/seed/compudopt-florida-1/600/400", alt: "Students with laptops", caption: "Fictional Miami student device distribution." },
+      { src: "https://picsum.photos/seed/compudopt-florida-2/600/400", alt: "Training workshop", caption: "Sample Orlando family digital skills workshop." }
     ]
   },
   GA: {
@@ -127,6 +147,10 @@ const stateDetails = {
     schools: [
       { name: "Peachtree Youth Academy", city: "Atlanta", students: 380, computers: 280, impact: "The fictional results suggest improved confidence using learning platforms and shared documents." },
       { name: "Harbor Oaks K-8", city: "Savannah", students: 260, computers: 200, impact: "This demo card highlights increased participation in digital reading and STEM modules." }
+    ],
+    photos: [
+      { src: "https://picsum.photos/seed/compudopt-georgia-1/600/400", alt: "Students in tech class", caption: "Mock Atlanta school technology initiative." },
+      { src: "https://picsum.photos/seed/compudopt-georgia-2/600/400", alt: "Community learning event", caption: "Sample Savannah family tech night." }
     ]
   },
   NC: {
@@ -142,6 +166,10 @@ const stateDetails = {
     schools: [
       { name: "Queen City Pathways", city: "Charlotte", students: 460, computers: 340, impact: "Counselors in the fictional case note stronger college application completion." },
       { name: "Capital Futures Magnet", city: "Raleigh", students: 330, computers: 255, impact: "The school profile shows improved access to career certifications and online tutorials." }
+    ],
+    photos: [
+      { src: "https://picsum.photos/seed/compudopt-nc-1/600/400", alt: "Students in digital class", caption: "Fictional Charlotte career-readiness classroom." },
+      { src: "https://picsum.photos/seed/compudopt-nc-2/600/400", alt: "Student workshop", caption: "Sample Raleigh digital access training event." }
     ]
   },
   NY: {
@@ -157,6 +185,11 @@ const stateDetails = {
     schools: [
       { name: "Bronx Forward Academy", city: "New York City", students: 520, computers: 410, impact: "The demo outcome centers on better digital attendance and assignment submission rates." },
       { name: "Lake Effect Prep", city: "Buffalo", students: 290, computers: 220, impact: "Teachers in the fictional narrative used new devices to support math tutoring outside school hours." }
+    ],
+    photos: [
+      { src: "https://picsum.photos/seed/compudopt-ny-1/600/400", alt: "Urban classroom with laptops", caption: "Fictional Bronx classroom technology support." },
+      { src: "https://picsum.photos/seed/compudopt-ny-2/600/400", alt: "Students using devices", caption: "Sample Buffalo after-school digital tutoring." },
+      { src: "https://picsum.photos/seed/compudopt-ny-3/600/400", alt: "Family engagement event", caption: "Mock citywide parent digital access event." }
     ]
   },
   AZ: {
@@ -172,6 +205,10 @@ const stateDetails = {
     schools: [
       { name: "Desert Bloom Elementary", city: "Phoenix", students: 340, computers: 255, impact: "The fictional program snapshot highlights fewer device-sharing bottlenecks at home." },
       { name: "Catalina Rising School", city: "Tucson", students: 260, computers: 205, impact: "A made-up digital skills series helped students practice research and presentation tools." }
+    ],
+    photos: [
+      { src: "https://picsum.photos/seed/compudopt-az-1/600/400", alt: "Students in classroom", caption: "Sample Phoenix device access initiative." },
+      { src: "https://picsum.photos/seed/compudopt-az-2/600/400", alt: "Community digital training", caption: "Mock Tucson digital literacy workshop." }
     ]
   },
   CO: {
@@ -187,6 +224,10 @@ const stateDetails = {
     schools: [
       { name: "Mile High Discovery", city: "Denver", students: 290, computers: 220, impact: "The demo frame focuses on access to digital project work and cloud-based collaboration." },
       { name: "Pikes Peak Scholars", city: "Colorado Springs", students: 240, computers: 185, impact: "In this fictional scenario, student families reported more confidence using school portals." }
+    ],
+    photos: [
+      { src: "https://picsum.photos/seed/compudopt-co-1/600/400", alt: "Students using tablets", caption: "Sample Denver digital learning lab." },
+      { src: "https://picsum.photos/seed/compudopt-co-2/600/400", alt: "School tech program", caption: "Mock Colorado Springs student tech initiative." }
     ]
   },
   WA: {
@@ -202,6 +243,10 @@ const stateDetails = {
     schools: [
       { name: "Rainier View School", city: "Seattle", students: 250, computers: 190, impact: "The fictional impact note emphasizes better participation in remote enrichment work." },
       { name: "South Sound Learning Lab", city: "Tacoma", students: 210, computers: 165, impact: "This school story demonstrates how donated devices could support STEM club retention." }
+    ],
+    photos: [
+      { src: "https://picsum.photos/seed/compudopt-wa-1/600/400", alt: "Students with laptops", caption: "Fictional Seattle classroom technology scene." },
+      { src: "https://picsum.photos/seed/compudopt-wa-2/600/400", alt: "Computer workshop", caption: "Sample Tacoma enrichment technology lab." }
     ]
   },
   OH: {
@@ -217,6 +262,10 @@ const stateDetails = {
     schools: [
       { name: "Buckeye STEAM Academy", city: "Columbus", students: 300, computers: 230, impact: "The sample narrative points to more consistent use of online tutoring and intervention tools." },
       { name: "Lakeshore Community School", city: "Cleveland", students: 260, computers: 205, impact: "Teachers in the fictional example reported stronger participation in digital writing assignments." }
+    ],
+    photos: [
+      { src: "https://picsum.photos/seed/compudopt-oh-1/600/400", alt: "Students in STEM class", caption: "Sample Columbus STEAM classroom photo." },
+      { src: "https://picsum.photos/seed/compudopt-oh-2/600/400", alt: "Students in tutoring lab", caption: "Mock Cleveland digital tutoring program." }
     ]
   },
   PA: {
@@ -232,6 +281,10 @@ const stateDetails = {
     schools: [
       { name: "Liberty Bell Middle", city: "Philadelphia", students: 410, computers: 320, impact: "The fictional impact snapshot highlights improved online test readiness." },
       { name: "Three Rivers Academy", city: "Pittsburgh", students: 285, computers: 215, impact: "This sample school story ties device access to stronger participation in technology electives." }
+    ],
+    photos: [
+      { src: "https://picsum.photos/seed/compudopt-pa-1/600/400", alt: "Students in school lab", caption: "Fictional Philadelphia classroom technology rollout." },
+      { src: "https://picsum.photos/seed/compudopt-pa-2/600/400", alt: "Students in workshop", caption: "Sample Pittsburgh technology elective program." }
     ]
   }
 };
@@ -243,6 +296,8 @@ const cityList = document.querySelector("#city-list");
 const cityCount = document.querySelector("#city-count");
 const schoolList = document.querySelector("#school-list");
 const schoolCount = document.querySelector("#school-count");
+const photoGrid = document.querySelector("#photo-grid");
+const photoCount = document.querySelector("#photo-count");
 const totalStates = document.querySelector("#total-states");
 const totalComputers = document.querySelector("#total-computers");
 const totalStudents = document.querySelector("#total-students");
@@ -292,6 +347,13 @@ function renderState(code) {
         <p>This state could display future school partners, device counts, and local impact stories once real program data is available.</p>
       </article>
     `;
+    photoCount.textContent = "1 photo";
+    photoGrid.innerHTML = `
+      <article class="photo-card">
+        <img src="https://picsum.photos/seed/future-state-photo/600/400" alt="Placeholder future community photo">
+        <p>Future photo gallery for this state.</p>
+      </article>
+    `;
     return;
   }
 
@@ -320,6 +382,15 @@ function renderState(code) {
       <p>${school.impact}</p>
     </article>
   `).join("");
+
+  const photos = details.photos || [];
+  photoCount.textContent = `${photos.length} ${photos.length === 1 ? "photo" : "photos"}`;
+  photoGrid.innerHTML = photos.map((photo) => `
+    <article class="photo-card">
+      <img src="${photo.src}" alt="${photo.alt}">
+      <p>${photo.caption}</p>
+    </article>
+  `).join("");
 }
 
 async function drawMap() {
@@ -329,17 +400,16 @@ async function drawMap() {
 
   svg.selectAll("*").remove();
 
-  svg.append("defs")
-    .append("linearGradient")
+  const defs = svg.append("defs");
+  const gradient = defs.append("linearGradient")
     .attr("id", "stateGradient")
     .attr("x1", "0%")
     .attr("y1", "0%")
     .attr("x2", "100%")
-    .attr("y2", "100%")
-    .call((gradient) => {
-      gradient.append("stop").attr("offset", "0%").attr("stop-color", "#8ec341");
-      gradient.append("stop").attr("offset", "100%").attr("stop-color", "#1d76bb");
-    });
+    .attr("y2", "100%");
+
+  gradient.append("stop").attr("offset", "0%").attr("stop-color", "#8ec341");
+  gradient.append("stop").attr("offset", "100%").attr("stop-color", "#1d76bb");
 
   const us = await d3.json("https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json");
   const states = topojson.feature(us, us.objects.states).features;
@@ -353,26 +423,22 @@ async function drawMap() {
     .data(states)
     .join("path")
     .attr("class", (d) => {
-      const code = fipsToState[d.id.padStart(2, "0")]?.code;
+      const code = fipsToState[String(d.id).padStart(2, "0")]?.code;
       return `state ${stateDetails[code] ? "state-active" : "state-inactive"}`;
     })
-    .attr("data-code", (d) => fipsToState[d.id.padStart(2, "0")]?.code || "")
+    .attr("data-code", (d) => fipsToState[String(d.id).padStart(2, "0")]?.code || "")
     .attr("d", path)
-    .on("mouseenter", function(event, d) {
-      const code = fipsToState[d.id.padStart(2, "0")]?.code;
-      if (code) {
-        renderState(code);
-      }
+    .on("mouseenter", (event, d) => {
+      const code = fipsToState[String(d.id).padStart(2, "0")]?.code;
+      if (code) renderState(code);
     })
-    .on("click", function(event, d) {
-      const code = fipsToState[d.id.padStart(2, "0")]?.code;
-      if (code) {
-        renderState(code);
-      }
+    .on("click", (event, d) => {
+      const code = fipsToState[String(d.id).padStart(2, "0")]?.code;
+      if (code) renderState(code);
     });
 
   const activeStates = states.filter((d) => {
-    const code = fipsToState[d.id.padStart(2, "0")]?.code;
+    const code = fipsToState[String(d.id).padStart(2, "0")]?.code;
     return Boolean(stateDetails[code]);
   });
 
@@ -385,7 +451,8 @@ async function drawMap() {
       const [x, y] = path.centroid(d);
       return `translate(${x},${y})`;
     })
-    .text((d) => fipsToState[d.id.padStart(2, "0")]?.code || "");
+    .attr("dy", "0.35em")
+    .text((d) => fipsToState[String(d.id).padStart(2, "0")]?.code || "");
 }
 
 aggregateTotals();
