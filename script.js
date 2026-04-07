@@ -254,27 +254,27 @@ async function drawMap() {
     .attr("x1", 0)
     .attr("y1", 0)
     .attr("x2", 0)
-    .attr("y2", -42);
+    .attr("y2", -32);
 
   markers.append("rect")
     .attr("class", "flag-body")
     .attr("x", 0)
-    .attr("y", -42)
-    .attr("rx", 8)
-    .attr("ry", 8)
-    .attr("width", 34)
-    .attr("height", 24);
+    .attr("y", -32)
+    .attr("rx", 6)
+    .attr("ry", 6)
+    .attr("width", 26)
+    .attr("height", 18);
 
   markers.append("text")
     .attr("class", "flag-count")
-    .attr("x", 17)
-    .attr("y", -30)
+    .attr("x", 13)
+    .attr("y", -23)
     .text((d) => d.schoolCount);
 
   markers.append("text")
     .attr("class", "flag-label")
-    .attr("x", 17)
-    .attr("y", -52)
+    .attr("x", 13)
+    .attr("y", -40)
     .text((d) => d.name);
 
   svg.on("mouseleave", resetMap);
